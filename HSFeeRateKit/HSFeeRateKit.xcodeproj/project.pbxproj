@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B3504C8719D8945110E449 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3528366BAE735FEAD5CB2 /* Protocols.swift */; };
+		11B35323DBDDE63EBEDCE15E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B350E65863F0C372568BA3 /* NetworkManager.swift */; };
 		11B356BBA6ABAE506874FCB4 /* FeeRateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */; };
+		11B357B3F7B9CE82C0CF9183 /* IpfsApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3522F182477089448A193 /* IpfsApiProvider.swift */; };
+		11B35966D348F6FB9425EAC5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3594F3568B6D06564A16E /* Logger.swift */; };
+		11B359DE810A61869E434E11 /* Syncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B356FF07188BD435A2C9B9 /* Syncer.swift */; };
+		11B35A9A374F20342FB98359 /* GrdbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B351C5710C9335E0DE037F /* GrdbStorage.swift */; };
+		11B35C59CBBF90EB910133A2 /* FeeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B357CB0091C3CA8DB6731A /* FeeRate.swift */; };
+		11B35D738700BB58A0B85AA9 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35E12220FAD7AFDAB31AB /* Coin.swift */; };
 		82A7CA7F061BAB1FF2C0CE5A /* Pods_HSFeeRateKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28AC259CEA5E06091DF5275 /* Pods_HSFeeRateKitTests.framework */; };
 		D3053311225716C500964497 /* HSFeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3053307225716C500964497 /* HSFeeRateKit.framework */; };
 		D3053318225716C500964497 /* HSFeeRateKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D305330A225716C500964497 /* HSFeeRateKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,7 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11B350E65863F0C372568BA3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		11B351C5710C9335E0DE037F /* GrdbStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrdbStorage.swift; sourceTree = "<group>"; };
+		11B3522F182477089448A193 /* IpfsApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpfsApiProvider.swift; sourceTree = "<group>"; };
+		11B3528366BAE735FEAD5CB2 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateKit.swift; sourceTree = "<group>"; };
+		11B356FF07188BD435A2C9B9 /* Syncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncer.swift; sourceTree = "<group>"; };
+		11B357CB0091C3CA8DB6731A /* FeeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRate.swift; sourceTree = "<group>"; };
+		11B3594F3568B6D06564A16E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		11B35E12220FAD7AFDAB31AB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		5614F55D82CEEFDABB9C4F00 /* Pods-HSFeeRateKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKitTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKitTests/Pods-HSFeeRateKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		5C3000E86CEC01BB336155F0 /* Pods-HSFeeRateKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKitTests/Pods-HSFeeRateKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D0AA7C3FAA8F96A07AFC051 /* Pods-HSFeeRateKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKit/Pods-HSFeeRateKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +76,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11B35198E4CA2B427B0E761F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11B357CB0091C3CA8DB6731A /* FeeRate.swift */,
+				11B35E12220FAD7AFDAB31AB /* Coin.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11B352E618849CCA39986C3E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				11B356FF07188BD435A2C9B9 /* Syncer.swift */,
+				11B3594F3568B6D06564A16E /* Logger.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		11B3542B0A5989FA924C7DE2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				11B3522F182477089448A193 /* IpfsApiProvider.swift */,
+				11B350E65863F0C372568BA3 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		11B35BA3F86AD3D9A1EFBEB9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				11B351C5710C9335E0DE037F /* GrdbStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		6A012D1408954D26091AC90E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +145,12 @@
 		D3053309225716C500964497 /* HSFeeRateKit */ = {
 			isa = PBXGroup;
 			children = (
+				11B352E618849CCA39986C3E /* Core */,
+				11B35198E4CA2B427B0E761F /* Models */,
+				11B35BA3F86AD3D9A1EFBEB9 /* Storage */,
+				11B3542B0A5989FA924C7DE2 /* Network */,
 				11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */,
+				11B3528366BAE735FEAD5CB2 /* Protocols.swift */,
 				D305330A225716C500964497 /* HSFeeRateKit.h */,
 				D305330B225716C500964497 /* Info.plist */,
 			);
@@ -309,6 +365,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				11B356BBA6ABAE506874FCB4 /* FeeRateKit.swift in Sources */,
+				11B3504C8719D8945110E449 /* Protocols.swift in Sources */,
+				11B35C59CBBF90EB910133A2 /* FeeRate.swift in Sources */,
+				11B35D738700BB58A0B85AA9 /* Coin.swift in Sources */,
+				11B35A9A374F20342FB98359 /* GrdbStorage.swift in Sources */,
+				11B359DE810A61869E434E11 /* Syncer.swift in Sources */,
+				11B357B3F7B9CE82C0CF9183 /* IpfsApiProvider.swift in Sources */,
+				11B35323DBDDE63EBEDCE15E /* NetworkManager.swift in Sources */,
+				11B35966D348F6FB9425EAC5 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
