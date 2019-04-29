@@ -3,10 +3,10 @@ use_frameworks!
 
 inhibit_all_warnings!
 
-workspace 'HSFeeRateKit'
+workspace 'FeeRateKit'
 
-project 'HSFeeRateKit/HSFeeRateKit'
-project 'HSFeeRateKitDemo/HSFeeRateKitDemo'
+project 'FeeRateKit/FeeRateKit'
+project 'Demo/Demo'
 
 def common_pods
   pod 'RxSwift', '~> 4.0'
@@ -14,18 +14,18 @@ def common_pods
   pod 'GRDB.swift', '~> 3.0'
 end
 
-target :HSFeeRateKit do
-  project 'HSFeeRateKit/HSFeeRateKit'
+target :FeeRateKit do
+  project 'FeeRateKit/FeeRateKit'
   common_pods
 end
 
-target :HSFeeRateKitDemo do
-  project 'HSFeeRateKitDemo/HSFeeRateKitDemo'
+target :Demo do
+  project 'Demo/Demo'
   common_pods
 end
 
-target :HSFeeRateKitTests do
-  project 'HSFeeRateKit/HSFeeRateKit'
+target :FeeRateKitTests do
+  project 'FeeRateKit/FeeRateKit'
   pod 'Cuckoo'
   pod 'Quick'
   pod 'Nimble'

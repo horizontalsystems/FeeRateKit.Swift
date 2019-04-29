@@ -1,5 +1,5 @@
 import UIKit
-import HSFeeRateKit
+import FeeRateKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView?

@@ -16,10 +16,10 @@
 		11B35A9A374F20342FB98359 /* GrdbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B351C5710C9335E0DE037F /* GrdbStorage.swift */; };
 		11B35C59CBBF90EB910133A2 /* FeeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B357CB0091C3CA8DB6731A /* FeeRate.swift */; };
 		11B35D738700BB58A0B85AA9 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35E12220FAD7AFDAB31AB /* Coin.swift */; };
-		82A7CA7F061BAB1FF2C0CE5A /* Pods_HSFeeRateKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28AC259CEA5E06091DF5275 /* Pods_HSFeeRateKitTests.framework */; };
-		D3053311225716C500964497 /* HSFeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3053307225716C500964497 /* HSFeeRateKit.framework */; };
-		D3053318225716C500964497 /* HSFeeRateKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D305330A225716C500964497 /* HSFeeRateKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D305336322571F3600964497 /* Pods_HSFeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D305336222571F3600964497 /* Pods_HSFeeRateKit.framework */; };
+		4A160B4E396C587013DC2701 /* Pods_FeeRateKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */; };
+		D3053311225716C500964497 /* FeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3053307225716C500964497 /* FeeRateKit.framework */; };
+		D3053318225716C500964497 /* FeeRateKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D305330A225716C500964497 /* FeeRateKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCF8F57B9871CF197E9EA039 /* Pods_FeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1545D7B3EB910B2451D8DF6F /* Pods_FeeRateKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,11 +28,12 @@
 			containerPortal = D30532FE225716C500964497 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D3053306225716C500964497;
-			remoteInfo = HSFeeRateKit;
+			remoteInfo = FeeRateKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04D07C96EA86BBFA456FA9F8 /* Pods-FeeRateKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKitTests.debug.xcconfig"; path = "Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		11B350E65863F0C372568BA3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		11B351C5710C9335E0DE037F /* GrdbStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrdbStorage.swift; sourceTree = "<group>"; };
 		11B3522F182477089448A193 /* IpfsApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpfsApiProvider.swift; sourceTree = "<group>"; };
@@ -42,17 +43,16 @@
 		11B357CB0091C3CA8DB6731A /* FeeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRate.swift; sourceTree = "<group>"; };
 		11B3594F3568B6D06564A16E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		11B35E12220FAD7AFDAB31AB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
-		5614F55D82CEEFDABB9C4F00 /* Pods-HSFeeRateKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKitTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKitTests/Pods-HSFeeRateKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		5C3000E86CEC01BB336155F0 /* Pods-HSFeeRateKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKitTests/Pods-HSFeeRateKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7D0AA7C3FAA8F96A07AFC051 /* Pods-HSFeeRateKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKit/Pods-HSFeeRateKit.debug.xcconfig"; sourceTree = "<group>"; };
-		C28AC259CEA5E06091DF5275 /* Pods_HSFeeRateKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSFeeRateKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3053307225716C500964497 /* HSFeeRateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HSFeeRateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D305330A225716C500964497 /* HSFeeRateKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSFeeRateKit.h; sourceTree = "<group>"; };
-		D305330B225716C500964497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3053310225716C500964497 /* HSFeeRateKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSFeeRateKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3053317225716C500964497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D305336222571F3600964497 /* Pods_HSFeeRateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_HSFeeRateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB56658A2E90DD111A845AC0 /* Pods-HSFeeRateKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSFeeRateKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-HSFeeRateKit/Pods-HSFeeRateKit.release.xcconfig"; sourceTree = "<group>"; };
+		1545D7B3EB910B2451D8DF6F /* Pods_FeeRateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeeRateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E71D5D2994ECFED9050A97F /* Pods-FeeRateKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKit.debug.xcconfig"; path = "Target Support Files/Pods-FeeRateKit/Pods-FeeRateKit.debug.xcconfig"; sourceTree = "<group>"; };
+		2BEFB06F5964E843F0690540 /* Pods-FeeRateKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKitTests.release.xcconfig"; path = "Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeeRateKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3053307225716C500964497 /* FeeRateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeeRateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D305330A225716C500964497 /* FeeRateKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeeRateKit.h; sourceTree = "<group>"; };
+		D305330B225716C500964497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		D3053310225716C500964497 /* FeeRateKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeeRateKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3053317225716C500964497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		EDE21249B8AF5E23537C81C7 /* Pods-FeeRateKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKit.release.xcconfig"; path = "Target Support Files/Pods-FeeRateKit/Pods-FeeRateKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D305336322571F3600964497 /* Pods_HSFeeRateKit.framework in Frameworks */,
+				FCF8F57B9871CF197E9EA039 /* Pods_FeeRateKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,8 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3053311225716C500964497 /* HSFeeRateKit.framework in Frameworks */,
-				82A7CA7F061BAB1FF2C0CE5A /* Pods_HSFeeRateKitTests.framework in Frameworks */,
+				D3053311225716C500964497 /* FeeRateKit.framework in Frameworks */,
+				4A160B4E396C587013DC2701 /* Pods_FeeRateKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,38 +111,48 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		6A012D1408954D26091AC90E /* Pods */ = {
+		6793B2BE710C1411DEC7C333 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7D0AA7C3FAA8F96A07AFC051 /* Pods-HSFeeRateKit.debug.xcconfig */,
-				DB56658A2E90DD111A845AC0 /* Pods-HSFeeRateKit.release.xcconfig */,
-				5C3000E86CEC01BB336155F0 /* Pods-HSFeeRateKitTests.debug.xcconfig */,
-				5614F55D82CEEFDABB9C4F00 /* Pods-HSFeeRateKitTests.release.xcconfig */,
+				1E71D5D2994ECFED9050A97F /* Pods-FeeRateKit.debug.xcconfig */,
+				EDE21249B8AF5E23537C81C7 /* Pods-FeeRateKit.release.xcconfig */,
+				04D07C96EA86BBFA456FA9F8 /* Pods-FeeRateKitTests.debug.xcconfig */,
+				2BEFB06F5964E843F0690540 /* Pods-FeeRateKitTests.release.xcconfig */,
 			);
 			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		82AE9A7FB4E78A2B2BA67666 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1545D7B3EB910B2451D8DF6F /* Pods_FeeRateKit.framework */,
+				343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D30532FD225716C500964497 = {
 			isa = PBXGroup;
 			children = (
-				D3053309225716C500964497 /* HSFeeRateKit */,
-				D3053314225716C500964497 /* HSFeeRateKitTests */,
+				D3053309225716C500964497 /* FeeRateKit */,
+				D3053314225716C500964497 /* FeeRateKitTests */,
 				D3053308225716C500964497 /* Products */,
-				D305336122571F3600964497 /* Frameworks */,
-				6A012D1408954D26091AC90E /* Pods */,
+				6793B2BE710C1411DEC7C333 /* Pods */,
+				82AE9A7FB4E78A2B2BA67666 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		D3053308225716C500964497 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3053307225716C500964497 /* HSFeeRateKit.framework */,
-				D3053310225716C500964497 /* HSFeeRateKitTests.xctest */,
+				D3053307225716C500964497 /* FeeRateKit.framework */,
+				D3053310225716C500964497 /* FeeRateKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D3053309225716C500964497 /* HSFeeRateKit */ = {
+		D3053309225716C500964497 /* FeeRateKit */ = {
 			isa = PBXGroup;
 			children = (
 				11B352E618849CCA39986C3E /* Core */,
@@ -151,27 +161,18 @@
 				11B3542B0A5989FA924C7DE2 /* Network */,
 				11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */,
 				11B3528366BAE735FEAD5CB2 /* Protocols.swift */,
-				D305330A225716C500964497 /* HSFeeRateKit.h */,
+				D305330A225716C500964497 /* FeeRateKit.h */,
 				D305330B225716C500964497 /* Info.plist */,
 			);
-			path = HSFeeRateKit;
+			path = FeeRateKit;
 			sourceTree = "<group>";
 		};
-		D3053314225716C500964497 /* HSFeeRateKitTests */ = {
+		D3053314225716C500964497 /* FeeRateKitTests */ = {
 			isa = PBXGroup;
 			children = (
 				D3053317225716C500964497 /* Info.plist */,
 			);
-			path = HSFeeRateKitTests;
-			sourceTree = "<group>";
-		};
-		D305336122571F3600964497 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D305336222571F3600964497 /* Pods_HSFeeRateKit.framework */,
-				C28AC259CEA5E06091DF5275 /* Pods_HSFeeRateKitTests.framework */,
-			);
-			name = Frameworks;
+			path = FeeRateKitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,18 +182,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3053318225716C500964497 /* HSFeeRateKit.h in Headers */,
+				D3053318225716C500964497 /* FeeRateKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D3053306225716C500964497 /* HSFeeRateKit */ = {
+		D3053306225716C500964497 /* FeeRateKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D305331B225716C500964497 /* Build configuration list for PBXNativeTarget "HSFeeRateKit" */;
+			buildConfigurationList = D305331B225716C500964497 /* Build configuration list for PBXNativeTarget "FeeRateKit" */;
 			buildPhases = (
-				D40D88389365973A6BFB750A /* [CP] Check Pods Manifest.lock */,
+				14A51B313EA06CB22FB367D9 /* [CP] Check Pods Manifest.lock */,
 				D3053302225716C500964497 /* Headers */,
 				D3053303225716C500964497 /* Sources */,
 				D3053304225716C500964497 /* Frameworks */,
@@ -202,29 +203,29 @@
 			);
 			dependencies = (
 			);
-			name = HSFeeRateKit;
-			productName = HSFeeRateKit;
-			productReference = D3053307225716C500964497 /* HSFeeRateKit.framework */;
+			name = FeeRateKit;
+			productName = FeeRateKit;
+			productReference = D3053307225716C500964497 /* FeeRateKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D305330F225716C500964497 /* HSFeeRateKitTests */ = {
+		D305330F225716C500964497 /* FeeRateKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D305331E225716C500964497 /* Build configuration list for PBXNativeTarget "HSFeeRateKitTests" */;
+			buildConfigurationList = D305331E225716C500964497 /* Build configuration list for PBXNativeTarget "FeeRateKitTests" */;
 			buildPhases = (
-				1110C91A8C80304ABF3FE4A4 /* [CP] Check Pods Manifest.lock */,
+				95826EB89BAA5ACB7D6DEDCA /* [CP] Check Pods Manifest.lock */,
 				D305330C225716C500964497 /* Sources */,
 				D305330D225716C500964497 /* Frameworks */,
 				D305330E225716C500964497 /* Resources */,
-				AA8028AB1FE146223EE92857 /* [CP] Embed Pods Frameworks */,
+				E3BE7F01753538F5FC21C2E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				D3053313225716C500964497 /* PBXTargetDependency */,
 			);
-			name = HSFeeRateKitTests;
-			productName = HSFeeRateKitTests;
-			productReference = D3053310225716C500964497 /* HSFeeRateKitTests.xctest */;
+			name = FeeRateKitTests;
+			productName = FeeRateKitTests;
+			productReference = D3053310225716C500964497 /* FeeRateKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -245,7 +246,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D3053301225716C500964497 /* Build configuration list for PBXProject "HSFeeRateKit" */;
+			buildConfigurationList = D3053301225716C500964497 /* Build configuration list for PBXProject "FeeRateKit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -257,8 +258,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D3053306225716C500964497 /* HSFeeRateKit */,
-				D305330F225716C500964497 /* HSFeeRateKitTests */,
+				D3053306225716C500964497 /* FeeRateKit */,
+				D305330F225716C500964497 /* FeeRateKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -281,7 +282,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1110C91A8C80304ABF3FE4A4 /* [CP] Check Pods Manifest.lock */ = {
+		14A51B313EA06CB22FB367D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,14 +297,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HSFeeRateKitTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FeeRateKit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA8028AB1FE146223EE92857 /* [CP] Embed Pods Frameworks */ = {
+		95826EB89BAA5ACB7D6DEDCA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -311,7 +312,29 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-HSFeeRateKitTests/Pods-HSFeeRateKitTests-frameworks.sh",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FeeRateKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3BE7F01753538F5FC21C2E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cuckoo/Cuckoo.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -332,29 +355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-HSFeeRateKitTests/Pods-HSFeeRateKitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D40D88389365973A6BFB750A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HSFeeRateKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -388,7 +389,7 @@
 /* Begin PBXTargetDependency section */
 		D3053313225716C500964497 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D3053306225716C500964497 /* HSFeeRateKit */;
+			target = D3053306225716C500964497 /* FeeRateKit */;
 			targetProxy = D3053312225716C500964497 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -518,7 +519,7 @@
 		};
 		D305331C225716C500964497 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D0AA7C3FAA8F96A07AFC051 /* Pods-HSFeeRateKit.debug.xcconfig */;
+			baseConfigurationReference = 1E71D5D2994ECFED9050A97F /* Pods-FeeRateKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -527,14 +528,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = HSFeeRateKit/Info.plist;
+				INFOPLIST_FILE = FeeRateKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.HSFeeRateKit;
+				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.FeeRateKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -544,7 +545,7 @@
 		};
 		D305331D225716C500964497 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB56658A2E90DD111A845AC0 /* Pods-HSFeeRateKit.release.xcconfig */;
+			baseConfigurationReference = EDE21249B8AF5E23537C81C7 /* Pods-FeeRateKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -553,14 +554,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = HSFeeRateKit/Info.plist;
+				INFOPLIST_FILE = FeeRateKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.HSFeeRateKit;
+				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.FeeRateKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -570,17 +571,17 @@
 		};
 		D305331F225716C500964497 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C3000E86CEC01BB336155F0 /* Pods-HSFeeRateKitTests.debug.xcconfig */;
+			baseConfigurationReference = 04D07C96EA86BBFA456FA9F8 /* Pods-FeeRateKitTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72234W6E3D;
-				INFOPLIST_FILE = HSFeeRateKitTests/Info.plist;
+				INFOPLIST_FILE = FeeRateKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.HSFeeRateKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.FeeRateKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,17 +590,17 @@
 		};
 		D3053320225716C500964497 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5614F55D82CEEFDABB9C4F00 /* Pods-HSFeeRateKitTests.release.xcconfig */;
+			baseConfigurationReference = 2BEFB06F5964E843F0690540 /* Pods-FeeRateKitTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72234W6E3D;
-				INFOPLIST_FILE = HSFeeRateKitTests/Info.plist;
+				INFOPLIST_FILE = FeeRateKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.HSFeeRateKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.FeeRateKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,7 +610,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D3053301225716C500964497 /* Build configuration list for PBXProject "HSFeeRateKit" */ = {
+		D3053301225716C500964497 /* Build configuration list for PBXProject "FeeRateKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3053319225716C500964497 /* Debug */,
@@ -618,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D305331B225716C500964497 /* Build configuration list for PBXNativeTarget "HSFeeRateKit" */ = {
+		D305331B225716C500964497 /* Build configuration list for PBXNativeTarget "FeeRateKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D305331C225716C500964497 /* Debug */,
@@ -627,7 +628,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D305331E225716C500964497 /* Build configuration list for PBXNativeTarget "HSFeeRateKitTests" */ = {
+		D305331E225716C500964497 /* Build configuration list for PBXNativeTarget "FeeRateKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D305331F225716C500964497 /* Debug */,

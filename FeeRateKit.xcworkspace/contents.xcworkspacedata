@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:HSFeeRateKit/HSFeeRateKit.xcodeproj">
+      location = "group:FeeRateKit/FeeRateKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:HSFeeRateKitDemo/HSFeeRateKitDemo.xcodeproj">
+      location = "group:Demo/Demo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
