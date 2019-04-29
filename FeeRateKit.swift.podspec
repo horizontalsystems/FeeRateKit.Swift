@@ -7,13 +7,13 @@ Pod::Spec.new do |spec|
                        FeeRateKit.swift provides low, medium and high fee rates values for blockchains using data from IPFS.
                        ```
                     DESC
-  spec.homepage = 'https://github.com/horizontalsystems/fee-rate-kit-ios'
+  spec.homepage = 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios'
   spec.license = { :type => 'Apache 2.0', :file => 'LICENSE' }
   spec.author = { 'Horizontal Systems' => 'hsdao@protonmail.ch' }
   spec.social_media_url = 'http://horizontalsystems.io/'
 
   spec.requires_arc = true
-  spec.source = { git: 'https://github.com/horizontalsystems/fee-rate-kit-ios.git', tag: "#{spec.version}" }
+  spec.source = { git: 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios.git', tag: "#{spec.version}" }
   spec.source_files = 'FeeRateKit/FeeRateKit/**/*.{h,m,swift}'
   spec.ios.deployment_target = '11.0'
   spec.swift_version = '4.2'
