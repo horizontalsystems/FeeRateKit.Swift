@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     private func updateTextView() {
         textView?.text = format(title: "Bitcoin", rate: feeRateKit.bitcoin) +
                 format(title: "Bitcoin Cash", rate: feeRateKit.bitcoinCash) +
+                format(title: "Dash", rate: feeRateKit.dash) +
                 format(title: "Ethereum", rate: feeRateKit.ethereum)
     }
 

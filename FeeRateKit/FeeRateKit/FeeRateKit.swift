@@ -47,6 +47,10 @@ extension FeeRateKit {
         return feeRate(coin: .bitcoinCash)
     }
 
+    public var dash: FeeRate {
+        return feeRate(coin: .dash)
+    }
+
     public var ethereum: FeeRate {
         return feeRate(coin: .ethereum)
     }

@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
   spec.name = 'FeeRateKit.swift'
   spec.module_name = 'FeeRateKit'
   spec.version = '0.1'
-  spec.summary = 'Fee rate provider library for BTC, BCH and ETH'
+  spec.summary = 'Fee rate provider library for BTC, BCH, DASH and ETH'
   spec.description = <<-DESC
                        FeeRateKit.swift provides low, medium and high fee rates values for blockchains using data from IPFS.
                        ```
