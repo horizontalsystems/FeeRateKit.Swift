@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     private func format(title: String, rate: FeeRate) -> String {
         return "[\(title)]\n" +
                 "Date: \(dateFormatter.string(from: rate.date))\n" +
-                "Rates: low: \(rate.lowPriority), medium: \(rate.mediumPriority), high: \(rate.highPriority)\n\n"
+                "Rates: low: \(rate.low), medium: \(rate.medium), high: \(rate.high)\n\n"
     }
 
 }

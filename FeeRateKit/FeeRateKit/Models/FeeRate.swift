@@ -1,11 +1,23 @@
 import GRDB
 
 public class FeeRate: Record {
-    let coin: Coin
-    public let lowPriority: Int
-    public let mediumPriority: Int
-    public let highPriority: Int
+    private let coin: Coin
+    private let lowPriority: Int
+    private let mediumPriority: Int
+    private let highPriority: Int
     public let date: Date
+
+    public var low: Int {
+        return min(lowPriority, coin.maxFee)
+    }
+
+    public var medium: Int {
+        return min(mediumPriority, coin.maxFee)
+    }
+
+    public var high: Int {
+        return min(highPriority, coin.maxFee)
+    }
 
     init(coin: Coin, lowPriority: Int, mediumPriority: Int, highPriority: Int, date: Date) {
         self.coin = coin
