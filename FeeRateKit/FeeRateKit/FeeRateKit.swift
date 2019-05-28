@@ -1,7 +1,7 @@
 import RxSwift
 
 public class FeeRateKit {
-    private let refreshInterval: TimeInterval = 3 * 60
+    private let refreshIntervalInMinutes = 3
 
     public weak var delegate: IFeeRateKitDelegate?
 
@@ -14,7 +14,7 @@ public class FeeRateKit {
         self.storage = storage
         self.syncer = syncer
 
-        Observable<Int>.timer(0, period: refreshInterval, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+        Observable<Int>.timer(.seconds(0), period: .seconds(refreshIntervalInMinutes * 60), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribe(onNext: { [weak self] _ in
                     self?.refresh()
                 })
@@ -63,13 +63,12 @@ extension FeeRateKit {
 
 extension FeeRateKit {
 
-    public static func instance(minLogLevel: Logger.Level = .error) -> FeeRateKit {
+    public static func instance(infuraProjectId: String? = nil, infuraProjectSecret: String? = nil, minLogLevel: Logger.Level = .error) -> FeeRateKit {
         let logger = Logger(minLogLevel: minLogLevel)
 
         let storage: IStorage = GrdbStorage()
         let networkManager = NetworkManager(logger: logger)
-        let apiProvider: IApiProvider = IpfsApiProvider(networkManager: networkManager)
-        var syncer: ISyncer = Syncer(apiProvider: apiProvider, storage: storage)
+        var syncer: ISyncer = Syncer(networkManager: networkManager, storage: storage, infuraProjectId: infuraProjectId, infuraProjectSecret: infuraProjectSecret)
 
         let kit = FeeRateKit(storage: storage, syncer: syncer)
 

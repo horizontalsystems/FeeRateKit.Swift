@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name = 'FeeRateKit.swift'
   spec.module_name = 'FeeRateKit'
-  spec.version = '0.1'
+  spec.version = '0.2'
   spec.summary = 'Fee rate provider library for BTC, BCH, DASH and ETH'
   spec.description = <<-DESC
                        FeeRateKit.swift provides low, medium and high fee rates values for blockchains using data from IPFS.
@@ -16,9 +16,9 @@ Pod::Spec.new do |spec|
   spec.source = { git: 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios.git', tag: "#{spec.version}" }
   spec.source_files = 'FeeRateKit/FeeRateKit/**/*.{h,m,swift}'
   spec.ios.deployment_target = '11.0'
-  spec.swift_version = '4.2'
+  spec.swift_version = '5'
 
-  spec.dependency 'RxSwift', '~> 4.0'
+  spec.dependency 'RxSwift', '~> 5.0'
   spec.dependency 'Alamofire', '~> 4.0'
-  spec.dependency 'GRDB.swift', '~> 3.0'
+  spec.dependency 'GRDB.swift', '~> 4.0'
 end

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,9 @@
 		11B359DE810A61869E434E11 /* Syncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B356FF07188BD435A2C9B9 /* Syncer.swift */; };
 		11B35A9A374F20342FB98359 /* GrdbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B351C5710C9335E0DE037F /* GrdbStorage.swift */; };
 		11B35C59CBBF90EB910133A2 /* FeeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B357CB0091C3CA8DB6731A /* FeeRate.swift */; };
+		11B35C6DA60E922709A37AC4 /* InfuraApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B352AA6A8C0AA03BA90A56 /* InfuraApiProvider.swift */; };
 		11B35D738700BB58A0B85AA9 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35E12220FAD7AFDAB31AB /* Coin.swift */; };
+		11B35D999C5294967E624004 /* BcoinApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3546ED881343A0D1D7075 /* BcoinApiProvider.swift */; };
 		4A160B4E396C587013DC2701 /* Pods_FeeRateKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */; };
 		D3053311225716C500964497 /* FeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3053307225716C500964497 /* FeeRateKit.framework */; };
 		D3053318225716C500964497 /* FeeRateKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D305330A225716C500964497 /* FeeRateKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +40,8 @@
 		11B351C5710C9335E0DE037F /* GrdbStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrdbStorage.swift; sourceTree = "<group>"; };
 		11B3522F182477089448A193 /* IpfsApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpfsApiProvider.swift; sourceTree = "<group>"; };
 		11B3528366BAE735FEAD5CB2 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		11B352AA6A8C0AA03BA90A56 /* InfuraApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfuraApiProvider.swift; sourceTree = "<group>"; };
+		11B3546ED881343A0D1D7075 /* BcoinApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BcoinApiProvider.swift; sourceTree = "<group>"; };
 		11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateKit.swift; sourceTree = "<group>"; };
 		11B356FF07188BD435A2C9B9 /* Syncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncer.swift; sourceTree = "<group>"; };
 		11B357CB0091C3CA8DB6731A /* FeeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			children = (
 				11B3522F182477089448A193 /* IpfsApiProvider.swift */,
 				11B350E65863F0C372568BA3 /* NetworkManager.swift */,
+				11B3546ED881343A0D1D7075 /* BcoinApiProvider.swift */,
+				11B352AA6A8C0AA03BA90A56 /* InfuraApiProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 				TargetAttributes = {
 					D3053306225716C500964497 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					D305330F225716C500964497 = {
 						CreatedOnToolsVersion = 10.2;
@@ -252,6 +259,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D30532FD225716C500964497;
 			productRefGroup = D3053308225716C500964497 /* Products */;
@@ -332,26 +340,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Cuckoo/Cuckoo.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cuckoo.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -374,6 +367,8 @@
 				11B357B3F7B9CE82C0CF9183 /* IpfsApiProvider.swift in Sources */,
 				11B35323DBDDE63EBEDCE15E /* NetworkManager.swift in Sources */,
 				11B35966D348F6FB9425EAC5 /* Logger.swift in Sources */,
+				11B35D999C5294967E624004 /* BcoinApiProvider.swift in Sources */,
+				11B35C6DA60E922709A37AC4 /* InfuraApiProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +533,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.FeeRateKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -564,7 +559,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.horizontalsystems.FeeRateKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

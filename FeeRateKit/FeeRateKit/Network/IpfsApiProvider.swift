@@ -1,20 +1,19 @@
 import RxSwift
 
 class IpfsApiProvider {
-    private let url = "https://ipfs.io/ipns/QmXTJZBMMRmBbPun6HFt3tmb3tfYF2usLPxFoacL7G5uMX/blockchain/estimatefee/index.json"
-
     private let networkManager: NetworkManager
+    private let url: String
+    private let timeoutInterval: TimeInterval
 
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManager, baseUrl: String, timeoutInterval: TimeInterval) {
         self.networkManager = networkManager
+        self.timeoutInterval = timeoutInterval
+
+        url = "\(baseUrl)/ipns/QmXTJZBMMRmBbPun6HFt3tmb3tfYF2usLPxFoacL7G5uMX/blockchain/estimatefee/index.json"
     }
 
-}
-
-extension IpfsApiProvider: IApiProvider {
-
     func ratesSingle(coins: [Coin]) -> Single<[FeeRate]> {
-        return networkManager.single(urlString: url, httpMethod: .get, parameters: [:]) { response -> [FeeRate]? in
+        return networkManager.single(urlString: url, httpMethod: .get, parameters: [:], timoutInterval: timeoutInterval) { response -> [FeeRate]? in
             guard let map = response as? [String: Any] else {
                 return nil
             }

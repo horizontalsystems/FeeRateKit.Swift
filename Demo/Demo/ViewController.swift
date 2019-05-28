@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView?
 
     private let dateFormatter = DateFormatter()
-    private let feeRateKit = FeeRateKit.instance(minLogLevel: .verbose)
+    private let feeRateKit = FeeRateKit.instance(infuraProjectId: "2a1306f1d12f4c109a4d4fb9be46b02e", infuraProjectSecret: "fc479a9290b64a84a15fa6544a130218", minLogLevel: .verbose)
 
     override func viewDidLoad() {
         super.viewDidLoad()

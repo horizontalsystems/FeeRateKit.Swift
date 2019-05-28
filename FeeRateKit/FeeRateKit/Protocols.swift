@@ -17,7 +17,3 @@ protocol ISyncer {
 protocol ISyncerDelegate: AnyObject {
     func didSync()
 }
-
-protocol IApiProvider {
-    func ratesSingle(coins: [Coin]) -> Single<[FeeRate]>
-}
