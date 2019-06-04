@@ -24,6 +24,15 @@ enum Coin: String, CaseIterable {
         }
     }
 
+    var minFee: Int {
+        switch self {
+        case .bitcoin:      return 1
+        case .bitcoinCash:  return 1
+        case .dash:         return 1
+        case .ethereum:     return 100_000_000
+        }
+    }
+
 }
 
 extension Coin: DatabaseValueConvertible {

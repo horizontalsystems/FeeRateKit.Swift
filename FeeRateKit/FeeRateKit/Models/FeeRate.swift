@@ -8,15 +8,15 @@ public class FeeRate: Record {
     public let date: Date
 
     public var low: Int {
-        return min(lowPriority, coin.maxFee)
+        return max(min(lowPriority, coin.maxFee), coin.minFee)
     }
 
     public var medium: Int {
-        return min(mediumPriority, coin.maxFee)
+        return max(min(mediumPriority, coin.maxFee), coin.minFee)
     }
 
     public var high: Int {
-        return min(highPriority, coin.maxFee)
+        return max(min(highPriority, coin.maxFee), coin.minFee)
     }
 
     init(coin: Coin, lowPriority: Int, mediumPriority: Int, highPriority: Int, date: Date) {
