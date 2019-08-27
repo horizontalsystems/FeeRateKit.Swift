@@ -39,11 +39,16 @@ class InfuraApiProvider {
                 return nil
             }
 
+            let defaultFeeRate = Coin.ethereum.defaultFeeRate
+
             return FeeRate(
                     coin: .ethereum,
                     lowPriority: fee / 2,
                     mediumPriority: fee,
                     highPriority: fee * 2,
+                    lowPriorityDuration: defaultFeeRate.lowPriorityDuration,
+                    mediumPriorityDuration: defaultFeeRate.mediumPriorityDuration,
+                    highPriorityDuration: defaultFeeRate.highPriorityDuration,
                     date: Date()
             )
         }

@@ -5,6 +5,9 @@ public class FeeRate: Record {
     private let lowPriority: Int
     private let mediumPriority: Int
     private let highPriority: Int
+    public let lowPriorityDuration: TimeInterval
+    public let mediumPriorityDuration: TimeInterval
+    public let highPriorityDuration: TimeInterval
     public let date: Date
 
     public var low: Int {
@@ -19,11 +22,15 @@ public class FeeRate: Record {
         return max(min(highPriority, coin.maxFee), coin.minFee)
     }
 
-    init(coin: Coin, lowPriority: Int, mediumPriority: Int, highPriority: Int, date: Date) {
+    init(coin: Coin, lowPriority: Int, mediumPriority: Int, highPriority: Int,
+         lowPriorityDuration: TimeInterval, mediumPriorityDuration: TimeInterval, highPriorityDuration: TimeInterval, date: Date) {
         self.coin = coin
         self.lowPriority = lowPriority
         self.mediumPriority = mediumPriority
         self.highPriority = highPriority
+        self.lowPriorityDuration = lowPriorityDuration
+        self.mediumPriorityDuration = mediumPriorityDuration
+        self.highPriorityDuration = highPriorityDuration
         self.date = date
 
         super.init()
@@ -38,6 +45,9 @@ public class FeeRate: Record {
         case lowPriority
         case mediumPriority
         case highPriority
+        case lowPriorityDuration
+        case mediumPriorityDuration
+        case highPriorityDuration
         case date
     }
 
@@ -46,6 +56,9 @@ public class FeeRate: Record {
         lowPriority = row[Columns.lowPriority]
         mediumPriority = row[Columns.mediumPriority]
         highPriority = row[Columns.highPriority]
+        lowPriorityDuration = row[Columns.lowPriorityDuration]
+        mediumPriorityDuration = row[Columns.mediumPriorityDuration]
+        highPriorityDuration = row[Columns.highPriorityDuration]
         date = row[Columns.date]
 
         super.init(row: row)
@@ -56,6 +69,9 @@ public class FeeRate: Record {
         container[Columns.lowPriority] = lowPriority
         container[Columns.mediumPriority] = mediumPriority
         container[Columns.highPriority] = highPriority
+        container[Columns.lowPriorityDuration] = lowPriorityDuration
+        container[Columns.mediumPriorityDuration] = mediumPriorityDuration
+        container[Columns.highPriorityDuration] = highPriorityDuration
         container[Columns.date] = date
     }
 
@@ -64,7 +80,8 @@ public class FeeRate: Record {
 extension FeeRate: CustomStringConvertible {
 
     public var description: String {
-        return "FeeRate [coin: \(coin), low: \(lowPriority), medium: \(mediumPriority), high: \(highPriority), date: \(date)]"
+        return "FeeRate [coin: \(coin), low: \(lowPriority), medium: \(mediumPriority), high: \(highPriority)" + 
+        ", lowDuration: \(lowPriorityDuration), mediumDuration: \(mediumPriorityDuration), highDuration: \(highPriorityDuration), date: \(date)]"
     }
 
 }

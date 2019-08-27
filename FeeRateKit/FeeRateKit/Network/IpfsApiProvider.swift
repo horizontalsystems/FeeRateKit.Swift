@@ -9,7 +9,7 @@ class IpfsApiProvider {
         self.networkManager = networkManager
         self.timeoutInterval = timeoutInterval
 
-        url = "\(baseUrl)/ipns/QmXTJZBMMRmBbPun6HFt3tmb3tfYF2usLPxFoacL7G5uMX/blockchain/estimatefee/index.json"
+        url = "\(baseUrl)/ipns/QmXTJZBMMRmBbPun6HFt3tmb3tfYF2usLPxFoacL7G5uMX/blockchain/estimatefee/feerates.json"
     }
 
     func ratesSingle(coins: [Coin]) -> Single<[FeeRate]> {
@@ -22,7 +22,7 @@ class IpfsApiProvider {
                 return nil
             }
 
-            guard let ratesMap = map["rates"] as? [String: Any] else {
+            guard let ratesMap = map["feerates"] as? [String: Any] else {
                 return nil
             }
 
@@ -30,21 +30,36 @@ class IpfsApiProvider {
             var rates = [FeeRate]()
 
             for coin in coins {
-                guard let valuesMap = ratesMap[coin.rawValue] as? [String: Int] else {
+                guard let valuesMap = ratesMap[coin.rawValue] as? [String: Any] else {
                     continue
                 }
 
-                guard let lowPriority = valuesMap["low_priority"] else {
+                guard let lowPriorityMap = valuesMap["low_priority"] as? [String: Any],
+                      let lowPriorityRate = lowPriorityMap["rate"] as? Int,
+                      let lowPriorityDuration = lowPriorityMap["duration"] as? Int else {
                     continue
                 }
-                guard let mediumPriority = valuesMap["medium_priority"] else {
+                guard let mediumPriorityMap = valuesMap["medium_priority"] as? [String: Any],
+                      let mediumPriorityRate = mediumPriorityMap["rate"] as? Int,
+                      let mediumPriorityDuration = mediumPriorityMap["duration"] as? Int else {
                     continue
                 }
-                guard let highPriority = valuesMap["high_priority"] else {
+                guard let highPriorityMap = valuesMap["high_priority"] as? [String: Any],
+                      let highPriorityRate = highPriorityMap["rate"] as? Int,
+                      let highPriorityDuration = highPriorityMap["duration"] as? Int else {
                     continue
                 }
 
-                rates.append(FeeRate(coin: coin, lowPriority: lowPriority, mediumPriority: mediumPriority, highPriority: highPriority, date: date))
+                let feeRate = FeeRate(
+                        coin: coin,
+                        lowPriority: lowPriorityRate, mediumPriority: mediumPriorityRate, highPriority: highPriorityRate,
+                        lowPriorityDuration: Double(lowPriorityDuration * 60),
+                        mediumPriorityDuration: Double(mediumPriorityDuration * 60),
+                        highPriorityDuration: Double(highPriorityDuration * 60),
+                        date: date
+                )
+
+                rates.append(feeRate)
             }
 
             return rates
