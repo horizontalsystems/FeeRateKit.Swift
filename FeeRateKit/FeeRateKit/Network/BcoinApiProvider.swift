@@ -15,11 +15,16 @@ class BcoinApiProvider {
                 rateSingle(numberOfBlocks: 6),
                 rateSingle(numberOfBlocks: 15)
         ) { high, medium, low -> FeeRate in
+            let defaultFeeRate = Coin.bitcoin.defaultFeeRate
+
             return FeeRate(
                     coin: .bitcoin,
                     lowPriority: low,
                     mediumPriority: medium,
                     highPriority: high,
+                    lowPriorityDuration: defaultFeeRate.lowPriorityDuration,
+                    mediumPriorityDuration: defaultFeeRate.mediumPriorityDuration,
+                    highPriorityDuration: defaultFeeRate.highPriorityDuration,
                     date: Date()
             )
         }

@@ -28,6 +28,14 @@ class GrdbStorage {
             }
         }
 
+        migrator.registerMigration("addFeeRateDurations") { db in
+            try db.alter(table: FeeRate.databaseTableName) { t in
+                t.add(column: FeeRate.Columns.lowPriorityDuration.name, .integer).notNull()
+                t.add(column: FeeRate.Columns.mediumPriorityDuration.name, .integer).notNull()
+                t.add(column: FeeRate.Columns.highPriorityDuration.name, .integer).notNull()
+            }
+        }
+
         return migrator
     }
 
