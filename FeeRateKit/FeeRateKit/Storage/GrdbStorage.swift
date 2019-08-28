@@ -10,7 +10,7 @@ class GrdbStorage {
 
         dbPool = try! DatabasePool(path: databaseURL.path)
 
-        try? migrator.migrate(dbPool)
+        try! migrator.migrate(dbPool)
     }
 
     var migrator: DatabaseMigrator {
@@ -30,9 +30,9 @@ class GrdbStorage {
 
         migrator.registerMigration("addFeeRateDurations") { db in
             try db.alter(table: FeeRate.databaseTableName) { t in
-                t.add(column: FeeRate.Columns.lowPriorityDuration.name, .integer).notNull()
-                t.add(column: FeeRate.Columns.mediumPriorityDuration.name, .integer).notNull()
-                t.add(column: FeeRate.Columns.highPriorityDuration.name, .integer).notNull()
+                t.add(column: FeeRate.Columns.lowPriorityDuration.name, .double).notNull().defaults(to: 0)
+                t.add(column: FeeRate.Columns.mediumPriorityDuration.name, .double).notNull().defaults(to: 0)
+                t.add(column: FeeRate.Columns.highPriorityDuration.name, .double).notNull().defaults(to: 0)
             }
         }
 
