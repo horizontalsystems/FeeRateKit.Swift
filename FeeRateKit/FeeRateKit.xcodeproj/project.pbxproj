@@ -10,14 +10,16 @@
 		11B3504C8719D8945110E449 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3528366BAE735FEAD5CB2 /* Protocols.swift */; };
 		11B35323DBDDE63EBEDCE15E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B350E65863F0C372568BA3 /* NetworkManager.swift */; };
 		11B356BBA6ABAE506874FCB4 /* FeeRateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */; };
-		11B357B3F7B9CE82C0CF9183 /* IpfsApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3522F182477089448A193 /* IpfsApiProvider.swift */; };
 		11B35966D348F6FB9425EAC5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3594F3568B6D06564A16E /* Logger.swift */; };
-		11B359DE810A61869E434E11 /* Syncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B356FF07188BD435A2C9B9 /* Syncer.swift */; };
-		11B35A9A374F20342FB98359 /* GrdbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B351C5710C9335E0DE037F /* GrdbStorage.swift */; };
 		11B35C59CBBF90EB910133A2 /* FeeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B357CB0091C3CA8DB6731A /* FeeRate.swift */; };
-		11B35C6DA60E922709A37AC4 /* InfuraApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B352AA6A8C0AA03BA90A56 /* InfuraApiProvider.swift */; };
+		11B35C6DA60E922709A37AC4 /* InfuraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B352AA6A8C0AA03BA90A56 /* InfuraProvider.swift */; };
 		11B35D738700BB58A0B85AA9 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35E12220FAD7AFDAB31AB /* Coin.swift */; };
-		11B35D999C5294967E624004 /* BcoinApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3546ED881343A0D1D7075 /* BcoinApiProvider.swift */; };
+		11B35D999C5294967E624004 /* BtcCoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3546ED881343A0D1D7075 /* BtcCoreProvider.swift */; };
+		1A5645344280606AC78C482F /* FeeRateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A564025B2FE317F577EF09E /* FeeRateError.swift */; };
+		1A5645A49A804334649D033C /* FeeRateProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5641536825211E44FCE291 /* FeeRateProviderManager.swift */; };
+		1A5648DFEF84064A8343CC86 /* FeeProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A564A537428244437EDB27D /* FeeProviderConfig.swift */; };
+		1A564B39FFEB8B31491A893D /* BaseFeeRateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A564D1551ED022BF7C5D815 /* BaseFeeRateProvider.swift */; };
+		1A564D65766BCF060DF6E3A0 /* FeeRateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56467FD44D06B58D5D5F9C /* FeeRateCache.swift */; };
 		4A160B4E396C587013DC2701 /* Pods_FeeRateKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */; };
 		D3053311225716C500964497 /* FeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3053307225716C500964497 /* FeeRateKit.framework */; };
 		D3053318225716C500964497 /* FeeRateKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D305330A225716C500964497 /* FeeRateKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,17 +39,19 @@
 /* Begin PBXFileReference section */
 		04D07C96EA86BBFA456FA9F8 /* Pods-FeeRateKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKitTests.debug.xcconfig"; path = "Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		11B350E65863F0C372568BA3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		11B351C5710C9335E0DE037F /* GrdbStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrdbStorage.swift; sourceTree = "<group>"; };
-		11B3522F182477089448A193 /* IpfsApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpfsApiProvider.swift; sourceTree = "<group>"; };
 		11B3528366BAE735FEAD5CB2 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		11B352AA6A8C0AA03BA90A56 /* InfuraApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfuraApiProvider.swift; sourceTree = "<group>"; };
-		11B3546ED881343A0D1D7075 /* BcoinApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BcoinApiProvider.swift; sourceTree = "<group>"; };
+		11B352AA6A8C0AA03BA90A56 /* InfuraProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfuraProvider.swift; sourceTree = "<group>"; };
+		11B3546ED881343A0D1D7075 /* BtcCoreProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BtcCoreProvider.swift; sourceTree = "<group>"; };
 		11B35471CEEEB5F94EC054C1 /* FeeRateKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateKit.swift; sourceTree = "<group>"; };
-		11B356FF07188BD435A2C9B9 /* Syncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncer.swift; sourceTree = "<group>"; };
 		11B357CB0091C3CA8DB6731A /* FeeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRate.swift; sourceTree = "<group>"; };
 		11B3594F3568B6D06564A16E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		11B35E12220FAD7AFDAB31AB /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		1545D7B3EB910B2451D8DF6F /* Pods_FeeRateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeeRateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A564025B2FE317F577EF09E /* FeeRateError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateError.swift; sourceTree = "<group>"; };
+		1A5641536825211E44FCE291 /* FeeRateProviderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateProviderManager.swift; sourceTree = "<group>"; };
+		1A56467FD44D06B58D5D5F9C /* FeeRateCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateCache.swift; sourceTree = "<group>"; };
+		1A564A537428244437EDB27D /* FeeProviderConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeProviderConfig.swift; sourceTree = "<group>"; };
+		1A564D1551ED022BF7C5D815 /* BaseFeeRateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFeeRateProvider.swift; sourceTree = "<group>"; };
 		1E71D5D2994ECFED9050A97F /* Pods-FeeRateKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKit.debug.xcconfig"; path = "Target Support Files/Pods-FeeRateKit/Pods-FeeRateKit.debug.xcconfig"; sourceTree = "<group>"; };
 		2BEFB06F5964E843F0690540 /* Pods-FeeRateKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeeRateKitTests.release.xcconfig"; path = "Target Support Files/Pods-FeeRateKitTests/Pods-FeeRateKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeeRateKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,8 @@
 			children = (
 				11B357CB0091C3CA8DB6731A /* FeeRate.swift */,
 				11B35E12220FAD7AFDAB31AB /* Coin.swift */,
+				1A564A537428244437EDB27D /* FeeProviderConfig.swift */,
+				1A564025B2FE317F577EF09E /* FeeRateError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -92,7 +98,6 @@
 		11B352E618849CCA39986C3E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				11B356FF07188BD435A2C9B9 /* Syncer.swift */,
 				11B3594F3568B6D06564A16E /* Logger.swift */,
 			);
 			path = Core;
@@ -101,10 +106,11 @@
 		11B3542B0A5989FA924C7DE2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				11B3522F182477089448A193 /* IpfsApiProvider.swift */,
 				11B350E65863F0C372568BA3 /* NetworkManager.swift */,
-				11B3546ED881343A0D1D7075 /* BcoinApiProvider.swift */,
-				11B352AA6A8C0AA03BA90A56 /* InfuraApiProvider.swift */,
+				11B3546ED881343A0D1D7075 /* BtcCoreProvider.swift */,
+				11B352AA6A8C0AA03BA90A56 /* InfuraProvider.swift */,
+				1A5641536825211E44FCE291 /* FeeRateProviderManager.swift */,
+				1A564D1551ED022BF7C5D815 /* BaseFeeRateProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -112,7 +118,7 @@
 		11B35BA3F86AD3D9A1EFBEB9 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				11B351C5710C9335E0DE037F /* GrdbStorage.swift */,
+				1A56467FD44D06B58D5D5F9C /* FeeRateCache.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -362,13 +368,15 @@
 				11B3504C8719D8945110E449 /* Protocols.swift in Sources */,
 				11B35C59CBBF90EB910133A2 /* FeeRate.swift in Sources */,
 				11B35D738700BB58A0B85AA9 /* Coin.swift in Sources */,
-				11B35A9A374F20342FB98359 /* GrdbStorage.swift in Sources */,
-				11B359DE810A61869E434E11 /* Syncer.swift in Sources */,
-				11B357B3F7B9CE82C0CF9183 /* IpfsApiProvider.swift in Sources */,
 				11B35323DBDDE63EBEDCE15E /* NetworkManager.swift in Sources */,
 				11B35966D348F6FB9425EAC5 /* Logger.swift in Sources */,
-				11B35D999C5294967E624004 /* BcoinApiProvider.swift in Sources */,
-				11B35C6DA60E922709A37AC4 /* InfuraApiProvider.swift in Sources */,
+				11B35D999C5294967E624004 /* BtcCoreProvider.swift in Sources */,
+				11B35C6DA60E922709A37AC4 /* InfuraProvider.swift in Sources */,
+				1A5645A49A804334649D033C /* FeeRateProviderManager.swift in Sources */,
+				1A5648DFEF84064A8343CC86 /* FeeProviderConfig.swift in Sources */,
+				1A5645344280606AC78C482F /* FeeRateError.swift in Sources */,
+				1A564D65766BCF060DF6E3A0 /* FeeRateCache.swift in Sources */,
+				1A564B39FFEB8B31491A893D /* BaseFeeRateProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ class NetworkManager {
         let single = Single<DataResponse<Any>>.create { observer in
             let requestReference = Alamofire.request(request)
                     .validate()
-                    .responseJSON(queue: DispatchQueue.global(qos: .background), completionHandler: { response in
+                    .responseJSON(completionHandler: { response in
                         observer(.success(response))
                     })
 
