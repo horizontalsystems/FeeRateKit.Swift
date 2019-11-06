@@ -28,7 +28,7 @@ class ViewController: UIViewController {
                 .subscribe(onSuccess: { [weak self] feeRates in
                     self?.updateTextView(rates: feeRates)
                 }, onError: { error in
-                    print(error)
+                    print("handle fee rate error: \(error)")
                 })
                 .disposed(by: disposeBag)
     }
