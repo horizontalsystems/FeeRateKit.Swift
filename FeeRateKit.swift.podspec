@@ -20,5 +20,4 @@ Pod::Spec.new do |spec|
 
   spec.dependency 'RxSwift', '~> 5.0'
   spec.dependency 'Alamofire', '~> 4.0'
-  spec.dependency 'GRDB.swift', '~> 4.0'
 end

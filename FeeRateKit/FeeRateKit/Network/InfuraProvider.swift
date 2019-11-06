@@ -1,6 +1,6 @@
 import RxSwift
 
-class InfuraApiProvider {
+class InfuraProvider {
     private let networkManager: NetworkManager
     private let url: String
     private var basicAuth: (user: String, password: String)?
@@ -12,7 +12,11 @@ class InfuraApiProvider {
         basicAuth = projectSecret.map { (user: "", password: $0) }
     }
 
-    func ethereumRateSingle() -> Single<FeeRate> {
+}
+
+extension InfuraProvider: IFeeRateProvider {
+
+    func getFeeRates() -> Single<FeeRate> {
         let parameters: [String: Any] = [
             "id": "1",
             "jsonrpc": "2.0",

@@ -1,78 +1,59 @@
 import RxSwift
 
 public class FeeRateKit {
-    private let refreshIntervalInMinutes = 3
+    private let cache: IStorage
+    private let providerManager: FeeRateProviderManager
 
-    public weak var delegate: IFeeRateKitDelegate?
-
-    private let disposeBag = DisposeBag()
-
-    private let storage: IStorage
-    private let syncer: ISyncer
-
-    init(storage: IStorage, syncer: ISyncer) {
-        self.storage = storage
-        self.syncer = syncer
-
-        Observable<Int>.timer(.seconds(0), period: .seconds(refreshIntervalInMinutes * 60), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
-                .subscribe(onNext: { [weak self] _ in
-                    self?.refresh()
-                })
-                .disposed(by: disposeBag)
+    init(storage: IStorage, providerManager: FeeRateProviderManager) {
+        self.cache = storage
+        self.providerManager = providerManager
     }
 
-    private func feeRate(coin: Coin) -> FeeRate {
-        return storage.feeRate(coin: coin) ?? coin.defaultFeeRate
+    private func getRate(coin: Coin) -> Single<FeeRate> {
+        providerManager.getFeeRateProvider(coin: coin).getFeeRates()
     }
 
 }
 
-extension FeeRateKit: ISyncerDelegate {
+extension FeeRateKit {
 
-    func didSync() {
-        DispatchQueue.main.async {
-            self.delegate?.didRefreshFeeRates()
+    public var bitcoin: Single<FeeRate> {
+        getRate(coin: .bitcoin)
+    }
+
+    public var bitcoinCash: Single<FeeRate> {
+        getRate(coin: .bitcoinCash)
+    }
+
+    public var dash: Single<FeeRate> {
+        getRate(coin: .dash)
+    }
+
+    public var ethereum: Single<FeeRate> {
+        getRate(coin: .ethereum)
+    }
+
+    public func getRate(coinCode: String) -> Single<FeeRate> {
+        if let  coin = Coin(rawValue: coinCode) {
+            return getRate(coin: coin)
         }
+
+        return .error(FeeRateError.coinNotAvailable)
     }
 
 }
 
 extension FeeRateKit {
 
-    public var bitcoin: FeeRate {
-        return feeRate(coin: .bitcoin)
-    }
-
-    public var bitcoinCash: FeeRate {
-        return feeRate(coin: .bitcoinCash)
-    }
-
-    public var dash: FeeRate {
-        return feeRate(coin: .dash)
-    }
-
-    public var ethereum: FeeRate {
-        return feeRate(coin: .ethereum)
-    }
-
-    public func refresh() {
-        syncer.sync()
-    }
-
-}
-
-extension FeeRateKit {
-
-    public static func instance(infuraProjectId: String? = nil, infuraProjectSecret: String? = nil, minLogLevel: Logger.Level = .error) -> FeeRateKit {
+    public static func instance(providerConfig: FeeProviderConfig, minLogLevel: Logger.Level = .error) -> FeeRateKit {
         let logger = Logger(minLogLevel: minLogLevel)
 
-        let storage: IStorage = GrdbStorage()
+        let cache: IStorage = FeeRateCache()
         let networkManager = NetworkManager(logger: logger)
-        var syncer: ISyncer = Syncer(networkManager: networkManager, storage: storage, infuraProjectId: infuraProjectId, infuraProjectSecret: infuraProjectSecret)
 
-        let kit = FeeRateKit(storage: storage, syncer: syncer)
+        let feeRateProvider = FeeRateProviderManager(providerConfig: providerConfig, networkManager: networkManager, cache: cache)
 
-        syncer.delegate = kit
+        let kit = FeeRateKit(storage: cache, providerManager: feeRateProvider)
 
         return kit
     }
