@@ -17,8 +17,6 @@ class ViewController: UIViewController {
 
         dateFormatter.locale = Locale.current
         dateFormatter.setLocalizedDateFormatFromTemplate("yyyy MMM d, hh:mm:ss")
-
-        updateTextView(rates: [])
     }
 
     @IBAction func refresh() {
@@ -34,21 +32,27 @@ class ViewController: UIViewController {
     }
 
     private func updateTextView(rates: [FeeRate]) {
-        guard rates.count == exampleCoins.count else {
-            return
-        }
-
-        textView?.text = format(title: "Bitcoin", rate: rates[0]) +
-                format(title: "Bitcoin Cash", rate: rates[1]) +
-                format(title: "Dash", rate: rates[2]) +
-                format(title: "Ethereum", rate: rates[3])
+        let data: [(String, FeeRate)] = rates.enumerated().map { (exampleCoins[$0.offset], $0.element) }
+        textView?.text = data.reduce("") { $0 + format(data: $1) }
     }
 
-    private func format(title: String, rate: FeeRate) -> String {
-        "[\(title)]\n" +
+    private func format(data: (String, FeeRate)) -> String {
+        let coin = data.0
+        let rate = data.1
+        return "[\(name(from: coin))]\n" +
                 "Date: \(dateFormatter.string(from: rate.date))\n" +
                 "Rates: low: \(rate.low), medium: \(rate.medium), high: \(rate.high)\n" +
                 "Durations: low: \(rate.lowPriorityDuration), medium: \(rate.mediumPriorityDuration), high: \(rate.highPriorityDuration)\n\n"
+    }
+
+    private func name(from code: String) -> String {
+        switch code {
+        case "BTC": return "Bitcoin"
+        case "ETH": return "Ethereum"
+        case "DASH": return "Dash"
+        case "BCH": return "Bitcoin Cash"
+        default: return "Unknown" 
+        }
     }
 
 }

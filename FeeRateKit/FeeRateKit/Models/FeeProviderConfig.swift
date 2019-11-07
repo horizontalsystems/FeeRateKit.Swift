@@ -1,6 +1,6 @@
 public struct FeeProviderConfig {
     let infuraProjectId: String
-    let infuraProjectSecret: String
+    let infuraProjectSecret: String?
     let infuraApiUrl: String?
     let btcCoreRpcUrl: String
     let btcCoreRpcUser: String?
