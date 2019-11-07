@@ -20,6 +20,7 @@
 		1A5648DFEF84064A8343CC86 /* FeeProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A564A537428244437EDB27D /* FeeProviderConfig.swift */; };
 		1A564B39FFEB8B31491A893D /* BaseFeeRateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A564D1551ED022BF7C5D815 /* BaseFeeRateProvider.swift */; };
 		1A564D65766BCF060DF6E3A0 /* FeeRateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56467FD44D06B58D5D5F9C /* FeeRateCache.swift */; };
+		1A564EEF8A843D05C2A223D5 /* DefaultProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5645A24FA0B399F5DD29BF /* DefaultProvider.swift */; };
 		4A160B4E396C587013DC2701 /* Pods_FeeRateKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343290BBDC505A5C675C688E /* Pods_FeeRateKitTests.framework */; };
 		D3053311225716C500964497 /* FeeRateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3053307225716C500964497 /* FeeRateKit.framework */; };
 		D3053318225716C500964497 /* FeeRateKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D305330A225716C500964497 /* FeeRateKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,6 +50,7 @@
 		1545D7B3EB910B2451D8DF6F /* Pods_FeeRateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeeRateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A564025B2FE317F577EF09E /* FeeRateError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateError.swift; sourceTree = "<group>"; };
 		1A5641536825211E44FCE291 /* FeeRateProviderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateProviderManager.swift; sourceTree = "<group>"; };
+		1A5645A24FA0B399F5DD29BF /* DefaultProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultProvider.swift; sourceTree = "<group>"; };
 		1A56467FD44D06B58D5D5F9C /* FeeRateCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeRateCache.swift; sourceTree = "<group>"; };
 		1A564A537428244437EDB27D /* FeeProviderConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeProviderConfig.swift; sourceTree = "<group>"; };
 		1A564D1551ED022BF7C5D815 /* BaseFeeRateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFeeRateProvider.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				11B352AA6A8C0AA03BA90A56 /* InfuraProvider.swift */,
 				1A5641536825211E44FCE291 /* FeeRateProviderManager.swift */,
 				1A564D1551ED022BF7C5D815 /* BaseFeeRateProvider.swift */,
+				1A5645A24FA0B399F5DD29BF /* DefaultProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				1A5645344280606AC78C482F /* FeeRateError.swift in Sources */,
 				1A564D65766BCF060DF6E3A0 /* FeeRateCache.swift in Sources */,
 				1A564B39FFEB8B31491A893D /* BaseFeeRateProvider.swift in Sources */,
+				1A564EEF8A843D05C2A223D5 /* DefaultProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

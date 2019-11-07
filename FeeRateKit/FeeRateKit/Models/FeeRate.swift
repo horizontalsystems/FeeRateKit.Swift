@@ -1,5 +1,5 @@
 public class FeeRate {
-    internal let coin: Coin
+    let coin: Coin
     private let lowPriority: Int
     private let mediumPriority: Int
     private let highPriority: Int

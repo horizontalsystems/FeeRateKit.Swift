@@ -41,6 +41,41 @@ extension FeeRateKit {
         return .error(FeeRateError.coinNotAvailable)
     }
 
+    public func statusInfo() -> Single<[(String, Any)]> {
+        Single.zip([bitcoin, bitcoinCash, dash, ethereum])
+                .map { feeRates -> [(String, Any)] in
+                    [
+                        ("Bitcoin", [
+                            ("low", feeRates[0].low),
+                            ("medium", feeRates[0].medium),
+                            ("high", feeRates[0].high),
+                            ("date", feeRates[0].date)
+                        ]),
+                        ("Bitcoin Cash", [
+                            ("low", feeRates[0].low),
+                            ("medium", feeRates[0].medium),
+                            ("high", feeRates[0].high),
+                            ("date", feeRates[0].date)
+                        ]),
+                        ("Dash", [
+                            ("low", feeRates[0].low),
+                            ("medium", feeRates[0].medium),
+                            ("high", feeRates[0].high),
+                            ("date", feeRates[0].date)
+                        ]),
+                        ("Ethereum", [
+                            ("low", feeRates[0].low),
+                            ("medium", feeRates[0].medium),
+                            ("high", feeRates[0].high),
+                            ("date", feeRates[0].date)
+                        ])
+                    ]
+                }
+        .catchError { error -> Single<[(String, Any)]> in
+            .just([("error", error.localizedDescription)])
+        }
+    }
+
 }
 
 extension FeeRateKit {

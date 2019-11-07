@@ -5,11 +5,11 @@ class InfuraProvider {
     private let url: String
     private var basicAuth: (user: String, password: String)?
 
-    init(networkManager: NetworkManager, projectId: String, projectSecret: String? = nil) {
+    init(networkManager: NetworkManager, config: FeeProviderConfig) {
         self.networkManager = networkManager
 
-        url = "https://mainnet.infura.io/v3/\(projectId)"
-        basicAuth = projectSecret.map { (user: "", password: $0) }
+        url = "https://mainnet.infura.io/v3/\(config.infuraProjectId)"
+        basicAuth = config.infuraProjectSecret.map { (user: "", password: $0) }
     }
 
 }

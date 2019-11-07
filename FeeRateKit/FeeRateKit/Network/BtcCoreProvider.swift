@@ -6,11 +6,11 @@ class BtcCoreProvider {
     private let btcCoreRpcUser: String?
     private let btcCoreRpcPassword: String?
 
-    init(networkManager: NetworkManager, baseUrl: String, btcCoreRpcUser: String?, btcCoreRpcPassword: String?) {
+    init(networkManager: NetworkManager, config: FeeProviderConfig) {
         self.networkManager = networkManager
-        self.baseUrl = baseUrl
-        self.btcCoreRpcUser = btcCoreRpcUser
-        self.btcCoreRpcPassword = btcCoreRpcPassword
+        self.baseUrl = config.btcCoreRpcUrl
+        self.btcCoreRpcUser = config.btcCoreRpcUser
+        self.btcCoreRpcPassword = config.btcCoreRpcPassword
     }
 
     private func rateSingle(numberOfBlocks: Int) -> Single<Int> {

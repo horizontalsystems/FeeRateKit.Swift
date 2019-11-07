@@ -5,11 +5,7 @@ class FeeRateCache {
 extension FeeRateCache: IStorage {
 
     func feeRate(coin: Coin) -> FeeRate? {
-        guard let rate = cache[coin], Date().timeIntervalSince(rate.date) < coin.expirationTimeInterval else {
-            return nil
-        }
-
-        return rate
+        cache[coin]
     }
 
     func save(feeRate: FeeRate) {
