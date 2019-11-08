@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 
         dateFormatter.locale = Locale.current
         dateFormatter.setLocalizedDateFormatFromTemplate("yyyy MMM d, hh:mm:ss")
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stats", style: .plain, target: self, action: #selector(onShowStats))
     }
 
     @IBAction func refresh() {
@@ -27,6 +29,16 @@ class ViewController: UIViewController {
                     self?.updateTextView(rates: feeRates)
                 }, onError: { error in
                     print("handle fee rate error: \(error)")
+                })
+                .disposed(by: disposeBag)
+    }
+
+    @objc private func onShowStats() {
+        feeRateKit.statusInfo()
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+                .observeOn(MainScheduler.instance)
+                .subscribe(onSuccess: { status in
+                    print(status)
                 })
                 .disposed(by: disposeBag)
     }

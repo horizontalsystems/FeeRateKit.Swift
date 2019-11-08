@@ -13,6 +13,30 @@ public class FeeRateKit {
         providerManager.getFeeRateProvider(coin: coin).getFeeRates()
     }
 
+    private func name(from coin: Coin) -> String {
+        switch coin {
+        case .bitcoin: return "Bitcoin"
+        case .bitcoinCash: return "Bitcoin Cash"
+        case .dash: return "Dash"
+        case .ethereum: return "Ethereum"
+        }
+    }
+
+    private func tupleSingle(from coin: Coin) -> Single<(String, Any)> {
+        getRate(coin: coin)
+                .flatMap { [unowned self] rate -> Single<(String, Any)> in
+                    .just((self.name(from: coin), [
+                        ("low", rate.low),
+                        ("medium", rate.medium),
+                        ("high", rate.high),
+                        ("date", rate.date)
+                    ]))
+                }
+                .catchError { [unowned self] error in
+                    .just(("\(self.name(from: coin)) error", error.localizedDescription))
+                }
+    }
+
 }
 
 extension FeeRateKit {
@@ -42,38 +66,9 @@ extension FeeRateKit {
     }
 
     public func statusInfo() -> Single<[(String, Any)]> {
-        Single.zip([bitcoin, bitcoinCash, dash, ethereum])
-                .map { feeRates -> [(String, Any)] in
-                    [
-                        ("Bitcoin", [
-                            ("low", feeRates[0].low),
-                            ("medium", feeRates[0].medium),
-                            ("high", feeRates[0].high),
-                            ("date", feeRates[0].date)
-                        ]),
-                        ("Bitcoin Cash", [
-                            ("low", feeRates[0].low),
-                            ("medium", feeRates[0].medium),
-                            ("high", feeRates[0].high),
-                            ("date", feeRates[0].date)
-                        ]),
-                        ("Dash", [
-                            ("low", feeRates[0].low),
-                            ("medium", feeRates[0].medium),
-                            ("high", feeRates[0].high),
-                            ("date", feeRates[0].date)
-                        ]),
-                        ("Ethereum", [
-                            ("low", feeRates[0].low),
-                            ("medium", feeRates[0].medium),
-                            ("high", feeRates[0].high),
-                            ("date", feeRates[0].date)
-                        ])
-                    ]
-                }
-        .catchError { error -> Single<[(String, Any)]> in
-            .just([("error", error.localizedDescription)])
-        }
+        let coins: [Coin] = [.bitcoin, .bitcoinCash, .dash, .ethereum]
+        let tupleSingles: [Single<(String, Any)>] = coins.map(tupleSingle)
+        return Single.zip(tupleSingles)
     }
 
 }
