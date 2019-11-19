@@ -6,7 +6,7 @@ public struct FeeProviderConfig {
     let btcCoreRpcUser: String?
     let btcCoreRpcPassword: String?
 
-    public init(infuraProjectId: String, infuraProjectSecret: String, infuraApiUrl: String? = nil, btcCoreRpcUrl: String, btcCoreRpcUser: String?, btcCoreRpcPassword: String?) {
+    public init(infuraProjectId: String, infuraProjectSecret: String?, infuraApiUrl: String? = nil, btcCoreRpcUrl: String, btcCoreRpcUser: String?, btcCoreRpcPassword: String?) {
         self.infuraProjectId = infuraProjectId
         self.infuraProjectSecret = infuraProjectSecret
         self.infuraApiUrl = infuraApiUrl
