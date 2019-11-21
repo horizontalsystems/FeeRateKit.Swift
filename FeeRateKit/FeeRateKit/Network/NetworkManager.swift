@@ -108,7 +108,7 @@ extension NetworkManager {
 
 extension NetworkManager {
 
-    enum NetworkError: Error {
+    public enum NetworkError: Error {
         case invalidUrl
         case mappingError
         case noConnection
