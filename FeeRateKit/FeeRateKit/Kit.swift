@@ -1,6 +1,6 @@
 import RxSwift
 
-public class FeeRateKit {
+public class Kit {
     private let cache: IStorage
     private let providerManager: FeeRateProviderManager
 
@@ -39,7 +39,7 @@ public class FeeRateKit {
 
 }
 
-extension FeeRateKit {
+extension Kit {
 
     public var bitcoin: Single<FeeRate> {
         getRate(coin: .bitcoin)
@@ -73,9 +73,9 @@ extension FeeRateKit {
 
 }
 
-extension FeeRateKit {
+extension Kit {
 
-    public static func instance(providerConfig: FeeProviderConfig, minLogLevel: Logger.Level = .error) -> FeeRateKit {
+    public static func instance(providerConfig: FeeProviderConfig, minLogLevel: Logger.Level = .error) -> Kit {
         let logger = Logger(minLogLevel: minLogLevel)
 
         let cache: IStorage = FeeRateCache()
@@ -83,20 +83,9 @@ extension FeeRateKit {
 
         let feeRateProvider = FeeRateProviderManager(providerConfig: providerConfig, networkManager: networkManager, cache: cache)
 
-        let kit = FeeRateKit(storage: cache, providerManager: feeRateProvider)
+        let kit = Kit(storage: cache, providerManager: feeRateProvider)
 
         return kit
-    }
-
-}
-
-extension FeeRateKit {
-
-    public enum NetworkError: Error {
-        case invalidUrl
-        case mappingError
-        case noConnection
-        case serverError(status: Int, data: Any?)
     }
 
 }
