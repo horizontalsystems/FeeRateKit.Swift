@@ -54,8 +54,8 @@ extension BtcCoreProvider: IFeeRateProvider {
     func getFeeRates() -> Single<FeeRate> {
         Single.zip(
                 rateSingle(numberOfBlocks: 1),
-                rateSingle(numberOfBlocks: 5),
-                rateSingle(numberOfBlocks: 10)
+                rateSingle(numberOfBlocks: 10),
+                rateSingle(numberOfBlocks: 100)
         ) { high, medium, low -> FeeRate in
             let defaultFeeRate = Coin.bitcoin.defaultFeeRate
 
