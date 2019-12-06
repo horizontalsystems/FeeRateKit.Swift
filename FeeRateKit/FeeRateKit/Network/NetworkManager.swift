@@ -69,7 +69,6 @@ extension NetworkManager {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
         urlRequest.timeoutInterval = timoutInterval
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
 
         if let basicAuth = basicAuth, let header = Alamofire.Request.authorizationHeader(user: basicAuth.user, password: basicAuth.password) {
             urlRequest.setValue(header.value, forHTTPHeaderField: header.key)

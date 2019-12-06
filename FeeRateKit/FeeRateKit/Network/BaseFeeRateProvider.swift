@@ -11,12 +11,16 @@ class BaseFeeRateProvider {
         self.storage = storage
     }
 
-    private func provideFromFallback() -> FeeRate? {
+    private func provideFromCache() -> FeeRate? {
         guard let rate = storage.feeRate(coin: coin), Date().timeIntervalSince(rate.date) < coin.expirationTimeInterval else {
             return nil
         }
 
         return rate
+    }
+
+    private func provideFromFallback() -> FeeRate? {
+        coin.defaultFeeRate
     }
 
 }
@@ -29,11 +33,15 @@ extension BaseFeeRateProvider: IFeeRateProvider {
                     self?.storage.save(feeRate: rate)
                 })
                 .catchError { [weak self] error in
-                    guard let fallBackRate = self?.provideFromFallback() else {
-                        return .error(error)
+                    if let cachedRate = self?.provideFromCache() {
+                        return .just(cachedRate)
                     }
 
-                    return .just(fallBackRate)
+                    if let fallBackRate = self?.provideFromFallback() {
+                        return .just(fallBackRate)
+                    }
+
+                    return .error(error)
                 }
     }
 
