@@ -1,0 +1,27 @@
+PODS:
+  - Alamofire (4.9.1)
+  - FeeRateKit.swift (0.4):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 5.0)
+  - RxSwift (5.0.1)
+
+DEPENDENCIES:
+  - FeeRateKit.swift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - RxSwift
+
+EXTERNAL SOURCES:
+  FeeRateKit.swift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FeeRateKit.swift: a2e4b9994cd67d321b32c5b99084bf7e664c4ebc
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+
+PODFILE CHECKSUM: 0f3fef23efdc70cf4e6247063b3488e588fcd09f
+
+COCOAPODS: 1.8.4

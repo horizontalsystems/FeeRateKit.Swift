@@ -1,0 +1,10 @@
+platform :ios, '11'
+use_modular_headers!
+
+target 'FeeRateKitExample' do
+  pod 'FeeRateKit.swift', :path => '../'
+end
+
+target 'FeeRateKitTests' do
+  pod 'FeeRateKit.swift', :path => '../'
+end
