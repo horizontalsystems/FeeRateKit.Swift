@@ -1,23 +1,22 @@
-Pod::Spec.new do |spec|
-  spec.name = 'FeeRateKit.swift'
-  spec.module_name = 'FeeRateKit'
-  spec.version = '0.3'
-  spec.summary = 'Fee rate provider library for BTC, BCH, DASH and ETH'
-  spec.description = <<-DESC
-                       FeeRateKit.swift provides low, medium and high fee rates values for blockchains using data from IPFS.
-                       ```
-                    DESC
-  spec.homepage = 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios'
-  spec.license = { :type => 'Apache 2.0', :file => 'LICENSE' }
-  spec.author = { 'Horizontal Systems' => 'hsdao@protonmail.ch' }
-  spec.social_media_url = 'http://horizontalsystems.io/'
+Pod::Spec.new do |s|
+  s.name             = 'FeeRateKit.swift'
+  s.module_name      = 'FeeRateKit'
+  s.version          = '0.4'
+  s.summary          = 'Fee rate provider library for BTC, BCH, DASH and ETH.'
 
-  spec.requires_arc = true
-  spec.source = { git: 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios.git', tag: "#{spec.version}" }
-  spec.source_files = 'FeeRateKit/FeeRateKit/**/*.{h,m,swift}'
-  spec.ios.deployment_target = '11.0'
-  spec.swift_version = '5'
+  s.homepage         = 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'Horizontal Systems' => 'hsdao@protonmail.ch' }
+  s.source           = { git: 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios.git', tag: "#{s.version}" }
+  s.social_media_url = 'http://horizontalsystems.io/'
 
-  spec.dependency 'RxSwift', '~> 5.0'
-  spec.dependency 'Alamofire', '~> 4.0'
+  s.ios.deployment_target = '11.0'
+  s.swift_version = '5'
+
+  s.source_files = 'FeeRateKit/Classes/**/*'
+
+  s.requires_arc = true
+
+  s.dependency 'Alamofire', '~> 4.0'
+  s.dependency 'RxSwift', '~> 5.0'
 end
