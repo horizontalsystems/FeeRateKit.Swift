@@ -21,7 +21,7 @@ class FeeRateProviderManager {
         var feeRateProvider: IFeeRateProvider
         switch coin {
         case .bitcoin:
-            feeRateProvider = BaseFeeRateProvider(coin: coin, feeRateProvider: BtcCoreProvider(networkManager: networkManager, config: providerConfig), storage: cache)
+            feeRateProvider = BaseFeeRateProvider(coin: coin, feeRateProvider: BtcProvider(networkManager: networkManager, config: providerConfig, parametersProvider: BtcHorsysProvider(config: providerConfig), responseConverter: BtcResponseConverter()), storage: cache)
         case .ethereum:
             feeRateProvider = BaseFeeRateProvider(coin: coin, feeRateProvider: InfuraProvider(networkManager: networkManager, config: providerConfig), storage: cache)
         default:
