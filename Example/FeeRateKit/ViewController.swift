@@ -11,12 +11,12 @@ class ViewController: UIViewController {
     private let feeRateKit = Kit.instance(providerConfig: FeeProviderConfig(
             infuraProjectId: "2a1306f1d12f4c109a4d4fb9be46b02e", 
             infuraProjectSecret: "fc479a9290b64a84a15fa6544a130218", 
-            btcCoreRpcUrl: "http://134.209.138.9/", //"https://damp-old-pond.quiknode.io/38708434-ee69-4c9a-84d7-cb0f7f45f2cc/YiBzRob3cfnxTRSvByiyFh2bU93pKzxeyyTHpacaaPF0YnCg9u_cxvvoPIC-3wh6eaQAPyZh5Hd-fDjLGFXCIA==/", 
+            btcCoreRpcUrl: "http://134.209.138.9", //"https://damp-old-pond.quiknode.io/38708434-ee69-4c9a-84d7-cb0f7f45f2cc/YiBzRob3cfnxTRSvByiyFh2bU93pKzxeyyTHpacaaPF0YnCg9u_cxvvoPIC-3wh6eaQAPyZh5Hd-fDjLGFXCIA==/", 
             btcCoreRpcUser: nil,
             btcCoreRpcPassword: nil
     ))
 
-    private let exampleCoins = ["BTC", "BCH", "DASH", "ETH"]
+    private let exampleCoins = ["BTC", "LTC", "BCH", "DASH", "ETH"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,7 @@ class ViewController: UIViewController {
     private func name(from code: String) -> String {
         switch code {
         case "BTC": return "Bitcoin"
+        case "LTC": return "Litecoin"
         case "ETH": return "Ethereum"
         case "DASH": return "Dash"
         case "BCH": return "Bitcoin Cash"
