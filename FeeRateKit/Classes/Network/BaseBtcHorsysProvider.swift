@@ -1,18 +1,20 @@
 import RxSwift
 
-class BtcHorsysProvider {
+class BaseBtcHorsysProvider {
     private let btcCoreRpcUrl: String
+    private let coinCode: String
 
-    init(config: FeeProviderConfig) {
+    init(config: FeeProviderConfig, coinCode: String) {
         self.btcCoreRpcUrl = config.btcCoreRpcUrl
+        self.coinCode = coinCode
     }
 
 }
 
-extension BtcHorsysProvider: IBtcParametersProvider {
+extension BaseBtcHorsysProvider: IBtcParametersProvider {
 
     func url(for priority: RequestPriority) -> String {
-        btcCoreRpcUrl + priority.rawValue
+        [btcCoreRpcUrl, coinCode, priority.rawValue].joined(separator: "/")
     }
 
     func parameters(for priority: RequestPriority) -> [String: Any] {

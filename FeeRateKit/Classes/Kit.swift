@@ -16,6 +16,7 @@ public class Kit {
     private func name(from coin: Coin) -> String {
         switch coin {
         case .bitcoin: return "Bitcoin"
+        case .litecoin: return "Litecoin"
         case .bitcoinCash: return "Bitcoin Cash"
         case .dash: return "Dash"
         case .ethereum: return "Ethereum"
@@ -45,6 +46,10 @@ extension Kit {
         getRate(coin: .bitcoin)
     }
 
+    public var litecoin: Single<FeeRate> {
+        getRate(coin: .litecoin)
+    }
+
     public var bitcoinCash: Single<FeeRate> {
         getRate(coin: .bitcoinCash)
     }
@@ -66,7 +71,7 @@ extension Kit {
     }
 
     public func statusInfo() -> Single<[(String, Any)]> {
-        let coins: [Coin] = [.bitcoin, .bitcoinCash, .dash, .ethereum]
+        let coins: [Coin] = [.bitcoin, .litecoin, .bitcoinCash, .dash, .ethereum]
         let tupleSingles: [Single<(String, Any)>] = coins.map(tupleSingle)
         return Single.zip(tupleSingles)
     }

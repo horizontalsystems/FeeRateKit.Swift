@@ -1,6 +1,6 @@
 import Foundation
 
-class BtcResponseConverter {
+class BaseBtcResponseConverter {
 
     func convert(response: Any) -> Int? {
         guard let map = response as? [String: Any] else {

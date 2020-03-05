@@ -1,5 +1,6 @@
 enum Coin: String, CaseIterable {
     case bitcoin = "BTC"
+    case litecoin = "LTC"
     case bitcoinCash = "BCH"
     case dash = "DASH"
     case ethereum = "ETH"
@@ -16,6 +17,17 @@ enum Coin: String, CaseIterable {
                 mediumPriorityDuration: 120 * 60,
                 highPriorityDuration: 30 * 60,
                 date: Date()
+            )
+        case .litecoin:
+            return FeeRate(
+                    coin: self,
+                    lowPriority: 1,
+                    mediumPriority: 2,
+                    highPriority: 4,
+                    lowPriorityDuration: 30 * 60,
+                    mediumPriorityDuration: 15 * 60,
+                    highPriorityDuration: 3 * 60,
+                    date: Date()
             )
         case .bitcoinCash:
             return FeeRate(
@@ -55,6 +67,7 @@ enum Coin: String, CaseIterable {
     var maxFee: Int {
         switch self {
         case .bitcoin:      return 5_000
+        case .litecoin:     return 5_000
         case .bitcoinCash:  return 500
         case .dash:         return 500
         case .ethereum:     return 3_000_000_000_000
@@ -64,6 +77,7 @@ enum Coin: String, CaseIterable {
     var minFee: Int {
         switch self {
         case .bitcoin:      return 1
+        case .litecoin:     return 1
         case .bitcoinCash:  return 1
         case .dash:         return 1
         case .ethereum:     return 100_000_000
@@ -73,6 +87,7 @@ enum Coin: String, CaseIterable {
     var expirationTimeInterval: TimeInterval {
         switch self {
         case .bitcoin:      return 6 * 60
+        case .litecoin:     return 6 * 60
         case .bitcoinCash:  return 0
         case .dash:         return 0
         case .ethereum:     return 3 * 60
