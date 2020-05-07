@@ -3,6 +3,7 @@ use_modular_headers!
 
 target 'FeeRateKitExample' do
   pod 'FeeRateKit.swift', :path => '../'
+  pod 'HsToolKit.swift', git: 'https://github.com/horizontalsystems/hs-tool-kit-ios'
 end
 
 target 'FeeRateKitTests' do

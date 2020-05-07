@@ -1,3 +1,4 @@
+import HsToolKit
 import RxSwift
 
 public class Kit {
@@ -81,10 +82,8 @@ extension Kit {
 extension Kit {
 
     public static func instance(providerConfig: FeeProviderConfig, minLogLevel: Logger.Level = .error) -> Kit {
-        let logger = Logger(minLogLevel: minLogLevel)
-
         let cache: IStorage = FeeRateCache()
-        let networkManager = NetworkManager(logger: logger)
+        let networkManager = NetworkManager()
 
         let feeRateProvider = FeeRateProviderManager(providerConfig: providerConfig, networkManager: networkManager, cache: cache)
 
