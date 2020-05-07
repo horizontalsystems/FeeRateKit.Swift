@@ -1,28 +1,34 @@
+import Alamofire
 import RxSwift
+import HsToolKit
 
 class BaseBtcProvider {
     private let coin: Coin
     private let networkManager: NetworkManager
-    private let responseConverter: BaseBtcResponseConverter
     private let parametersProvider: IBtcParametersProvider
     private let baseUrl: String
     private let btcCoreRpcUser: String?
     private let btcCoreRpcPassword: String?
 
-    init(coin: Coin, networkManager: NetworkManager, config: FeeProviderConfig, parametersProvider: IBtcParametersProvider, responseConverter: BaseBtcResponseConverter) {
+    init(coin: Coin, networkManager: NetworkManager, config: FeeProviderConfig, parametersProvider: IBtcParametersProvider) {
         self.coin = coin
         self.networkManager = networkManager
         self.parametersProvider = parametersProvider
-        self.responseConverter = responseConverter
         self.baseUrl = config.btcCoreRpcUrl
         self.btcCoreRpcUser = config.btcCoreRpcUser
         self.btcCoreRpcPassword = config.btcCoreRpcPassword
     }
 
     private func rateSingle(priority: RequestPriority) -> Single<Int> {
-        networkManager.single(urlString: parametersProvider.url(for: priority), httpMethod: .post, basicAuth: parametersProvider.auth, parameters: parametersProvider.parameters(for: priority)) { [weak self] response -> Int? in
-            self?.responseConverter.convert(response: response)
+        var headers = HTTPHeaders()
+
+        if let auth = parametersProvider.auth {
+            headers.add(.authorization(username: auth.0, password: auth.1))
         }
+
+        let request = networkManager.session.request(parametersProvider.url(for: priority), method: .post, parameters: parametersProvider.parameters(for: priority), headers: headers)
+
+        return networkManager.single(request: request, mapper: self)
     }
 
 }
@@ -49,6 +55,36 @@ extension BaseBtcProvider: IFeeRateProvider {
                     date: Date()
             )
         }
+    }
+
+}
+
+extension BaseBtcProvider: IApiMapper {
+
+    enum ResponseError: Error {
+        case noResult
+        case noFeeRate
+        case feeIsZero
+    }
+
+    func map(statusCode: Int, data: Any?) throws -> Int {
+        guard let map = data as? [String: Any] else {
+            throw NetworkManager.RequestError.invalidResponse(statusCode: statusCode, data: data)
+        }
+
+        guard let result = map["result"] as? [String: Any] else {
+            throw ResponseError.noResult
+        }
+
+        guard let fee = (result["fee"] as? Double) ?? (result["feerate"] as? Double) else {
+            throw ResponseError.noFeeRate
+        }
+
+        guard fee > 0 else {
+            throw ResponseError.feeIsZero
+        }
+
+        return max(1, Int(fee * 100_000_000 / 1024))
     }
 
 }
