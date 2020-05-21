@@ -1,16 +1,17 @@
 import HsToolKit
 import RxSwift
+import Alamofire
 
 class InfuraProvider {
     private let networkManager: NetworkManager
     private let url: String
-    private var basicAuth: (user: String, password: String)?
+    private let secret: String?
 
     init(networkManager: NetworkManager, config: FeeProviderConfig) {
         self.networkManager = networkManager
 
         url = "https://mainnet.infura.io/v3/\(config.infuraProjectId)"
-        basicAuth = config.infuraProjectSecret.map { (user: "", password: $0) }
+        secret = config.infuraProjectSecret
     }
 
 }
@@ -25,7 +26,13 @@ extension InfuraProvider: IFeeRateProvider {
             "params": []
         ]
 
-        let request = networkManager.session.request(url, method: .post, parameters: parameters)
+        var headers = HTTPHeaders()
+
+        if let secret = secret {
+            headers.add(.authorization(username: "", password: secret))
+        }
+
+        let request = networkManager.session.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
 
         return networkManager.single(request: request, mapper: self)
     }
