@@ -82,8 +82,10 @@ extension Kit {
 extension Kit {
 
     public static func instance(providerConfig: FeeProviderConfig, minLogLevel: Logger.Level = .error) -> Kit {
+        let logger = Logger(minLogLevel: minLogLevel)
+
         let cache: IStorage = FeeRateCache()
-        let networkManager = NetworkManager()
+        let networkManager = NetworkManager(logger: logger)
 
         let feeRateProvider = FeeRateProviderManager(providerConfig: providerConfig, networkManager: networkManager, cache: cache)
 
