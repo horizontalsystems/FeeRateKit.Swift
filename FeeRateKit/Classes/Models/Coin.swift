@@ -13,7 +13,7 @@ enum Coin: String, CaseIterable {
                 lowPriority: 20,
                 mediumPriority: 40,
                 highPriority: 80,
-                lowPriorityDuration: 1440 * 60,
+                lowPriorityDuration: 600 * 60,
                 mediumPriorityDuration: 120 * 60,
                 highPriorityDuration: 30 * 60,
                 date: Date()
