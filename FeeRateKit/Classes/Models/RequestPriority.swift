@@ -1,7 +1,7 @@
 enum RequestPriority: String {
-    case low = "fee_low"
-    case medium = "fee_avg"
-    case high = "fee_high"
+    case low = "low"
+    case medium = "avg"
+    case high = "high"
 
     var blockCount: Int {
         switch self {
