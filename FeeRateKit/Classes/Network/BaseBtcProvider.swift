@@ -6,17 +6,11 @@ class BaseBtcProvider {
     private let coin: Coin
     private let networkManager: NetworkManager
     private let parametersProvider: IBtcParametersProvider
-    private let baseUrl: String
-    private let btcCoreRpcUser: String?
-    private let btcCoreRpcPassword: String?
 
-    init(coin: Coin, networkManager: NetworkManager, config: FeeProviderConfig, parametersProvider: IBtcParametersProvider) {
+    init(coin: Coin, networkManager: NetworkManager, parametersProvider: IBtcParametersProvider) {
         self.coin = coin
         self.networkManager = networkManager
         self.parametersProvider = parametersProvider
-        self.baseUrl = config.btcCoreRpcUrl
-        self.btcCoreRpcUser = config.btcCoreRpcUser
-        self.btcCoreRpcPassword = config.btcCoreRpcPassword
     }
 
     private func rateSingle(priority: RequestPriority) -> Single<Int> {
