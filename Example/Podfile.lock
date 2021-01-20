@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (5.1.0)
-  - FeeRateKit.swift (0.4):
-    - HsToolKit.swift (~> 1.0)
+  - Alamofire (5.4.1)
+  - FeeRateKit.swift (0.5):
+    - HsToolKit.swift (~> 1)
     - RxSwift (~> 5.0)
-  - HsToolKit.swift (1.0):
+  - HsToolKit.swift (1.1.0):
     - Alamofire (~> 5.0)
     - ObjectMapper (~> 3.0)
     - RxSwift (~> 5.0)
-  - ObjectMapper (3.5.2)
+  - ObjectMapper (3.5.3)
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
@@ -28,14 +28,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   HsToolKit.swift:
-    :commit: 95152c6c3ca9a924f256c0c36de1a90caa02644b
+    :commit: 2f088bff0c737fb1c74e007ce85a9f1ea685cfc7
     :git: https://github.com/horizontalsystems/hs-tool-kit-ios
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  FeeRateKit.swift: fbf599802e96d999d1d9e45127ab0ad05a6163f8
-  HsToolKit.swift: b89273c4018e3b70894e820c88cee8b684be9305
-  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  FeeRateKit.swift: a35aa42c720c9a9a318b49a5aee15d3c07e7da22
+  HsToolKit.swift: d47ef3e8c507a6e980f2f6d819c5b0cf05845910
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
 PODFILE CHECKSUM: 20c53457ee1c7bcfdd32689999cfb5cdb5e38b2d
