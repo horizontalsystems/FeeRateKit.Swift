@@ -14,11 +14,7 @@ class InfuraProvider {
         secret = config.infuraProjectSecret
     }
 
-}
-
-extension InfuraProvider: IFeeRateProvider {
-
-    func getFeeRates() -> Single<FeeRate> {
+    func getFeeRate() -> Single<Int> {
         let parameters: [String: Any] = [
             "id": "1",
             "jsonrpc": "2.0",
@@ -46,7 +42,7 @@ extension InfuraProvider: IApiMapper {
         case wrongFeeFormat
     }
 
-    public func map(statusCode: Int, data: Any?) throws -> FeeRate {
+    public func map(statusCode: Int, data: Any?) throws -> Int {
         guard let map = data as? [String: Any] else {
             throw NetworkManager.RequestError.invalidResponse(statusCode: statusCode, data: data)
         }
@@ -65,18 +61,7 @@ extension InfuraProvider: IApiMapper {
             throw ResponseError.wrongFeeFormat
         }
 
-        let defaultFeeRate = Coin.ethereum.defaultFeeRate
-
-        return FeeRate(
-                coin: .ethereum,
-                lowPriority: fee / 2,
-                mediumPriority: fee,
-                highPriority: fee * 2,
-                lowPriorityDuration: defaultFeeRate.lowPriorityDuration,
-                mediumPriorityDuration: defaultFeeRate.mediumPriorityDuration,
-                highPriorityDuration: defaultFeeRate.highPriorityDuration,
-                date: Date()
-        )
+        return fee
     }
 
 }

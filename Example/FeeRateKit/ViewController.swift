@@ -7,11 +7,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView?
 
-    private let dateFormatter = DateFormatter()
     private let feeRateKit = Kit.instance(providerConfig: FeeProviderConfig(
             infuraProjectId: "2a1306f1d12f4c109a4d4fb9be46b02e", 
             infuraProjectSecret: "fc479a9290b64a84a15fa6544a130218", 
-            btcCoreRpcUrl: "http://134.209.138.9", //"https://damp-old-pond.quiknode.io/38708434-ee69-4c9a-84d7-cb0f7f45f2cc/YiBzRob3cfnxTRSvByiyFh2bU93pKzxeyyTHpacaaPF0YnCg9u_cxvvoPIC-3wh6eaQAPyZh5Hd-fDjLGFXCIA==/", 
+            btcCoreRpcUrl: "https://btc.horizontalsystems.xyz/rpc",
             btcCoreRpcUser: nil,
             btcCoreRpcPassword: nil
     ))
@@ -20,15 +19,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dateFormatter.locale = Locale.current
-        dateFormatter.setLocalizedDateFormatFromTemplate("yyyy MMM d, hh:mm:ss")
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stats", style: .plain, target: self, action: #selector(onShowStats))
+    }
+    
+    func getRate(coin: String) -> Single<Int> {
+        switch coin {
+            case "BTC": return feeRateKit.bitcoin(blockCount: 10)
+            case "LTC": return feeRateKit.litecoin
+            case "BCH": return feeRateKit.bitcoinCash
+            case "DASH": return feeRateKit.dash
+            case "ETH": return feeRateKit.ethereum
+            default: return Single.just(0)
+        }
     }
 
     @IBAction func refresh() {
-        Single.zip(exampleCoins.map(feeRateKit.getRate))
+        Single.zip(exampleCoins.map { getRate(coin: $0) })
                 .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
                 .observeOn(MainScheduler.instance)
                 .subscribe(onSuccess: { [weak self] feeRates in
@@ -39,28 +44,14 @@ class ViewController: UIViewController {
                 .disposed(by: disposeBag)
     }
 
-    @objc private func onShowStats() {
-        feeRateKit.statusInfo()
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-                .observeOn(MainScheduler.instance)
-                .subscribe(onSuccess: { status in
-                    print(status)
-                })
-                .disposed(by: disposeBag)
-    }
-
-    private func updateTextView(rates: [FeeRate]) {
-        let data: [(String, FeeRate)] = rates.enumerated().map { (exampleCoins[$0.offset], $0.element) }
-        textView?.text = data.reduce("") { $0 + format(data: $1) }
-    }
-
-    private func format(data: (String, FeeRate)) -> String {
-        let coin = data.0
-        let rate = data.1
-        return "[\(name(from: coin))]\n" +
-                "Date: \(dateFormatter.string(from: rate.date))\n" +
-                "Rates: low: \(rate.low), medium: \(rate.medium), high: \(rate.high)\n" +
-                "Durations: low: \(rate.lowPriorityDuration), medium: \(rate.mediumPriorityDuration), high: \(rate.highPriorityDuration)\n\n"
+    private func updateTextView(rates: [Int]) {
+        var ratesString = ""
+        
+        for (index, rate) in rates.enumerated() {
+            ratesString += "[\(name(from: exampleCoins[index]))]\nRate: \(rate)\n\n"
+        }
+        
+        textView?.text = ratesString
     }
 
     private func name(from code: String) -> String {

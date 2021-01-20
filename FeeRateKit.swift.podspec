@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'FeeRateKit.swift'
   s.module_name      = 'FeeRateKit'
-  s.version          = '0.4'
-  s.summary          = 'Fee rate provider library for BTC, BCH, DASH and ETH.'
+  s.version          = '0.5'
+  s.summary          = 'Fee rate provider library for BTC, BCH, LTC, DASH and ETH.'
 
   s.homepage         = 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency 'HsToolKit.swift', '~> 1.0'
+  s.dependency 'HsToolKit.swift', '~> 1'
 
   s.dependency 'RxSwift', '~> 5.0'
 end
