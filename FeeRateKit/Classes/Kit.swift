@@ -3,11 +3,13 @@ import RxSwift
 
 public class Kit {
     private let btcCoreProvider: BtcCoreProvider
-    private let infuraProvider: InfuraProvider
+    private let ethProvider: EvmProvider
+    private let bscProvider: EvmProvider
 
-    init(btcCoreProvider: BtcCoreProvider, infuraProvider: InfuraProvider) {
+    init(btcCoreProvider: BtcCoreProvider, ethProvider: EvmProvider, bscProvider: EvmProvider) {
         self.btcCoreProvider = btcCoreProvider
-        self.infuraProvider = infuraProvider
+        self.ethProvider = ethProvider
+        self.bscProvider = bscProvider
     }
 
 }
@@ -31,7 +33,11 @@ extension Kit {
     }
 
     public var ethereum: Single<Int> {
-        infuraProvider.getFeeRate()
+        ethProvider.getFeeRate()
+    }
+
+    public var binanceSmartChain: Single<Int> {
+        bscProvider.getFeeRate()
     }
 
 }
@@ -44,9 +50,10 @@ extension Kit {
         let networkManager = NetworkManager(logger: logger)
 
         let btcCoreProvider = BtcCoreProvider(networkManager: networkManager, config: providerConfig)
-        let infuraProvider = InfuraProvider(networkManager: networkManager, config: providerConfig)
+        let ethProvider = EvmProvider(networkManager: networkManager, url: providerConfig.ethEvmUrl, auth: providerConfig.ethEvmAuth)
+        let bscProvider = EvmProvider(networkManager: networkManager, url: providerConfig.bscEvmUrl)
 
-        let kit = Kit(btcCoreProvider: btcCoreProvider, infuraProvider: infuraProvider)
+        let kit = Kit(btcCoreProvider: btcCoreProvider, ethProvider: ethProvider, bscProvider: bscProvider)
 
         return kit
     }

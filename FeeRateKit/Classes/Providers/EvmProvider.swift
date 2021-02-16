@@ -2,16 +2,15 @@ import HsToolKit
 import RxSwift
 import Alamofire
 
-class InfuraProvider {
+class EvmProvider {
     private let networkManager: NetworkManager
     private let url: String
-    private let secret: String?
+    private let auth: String?
 
-    init(networkManager: NetworkManager, config: FeeProviderConfig) {
+    init(networkManager: NetworkManager, url: String, auth: String? = nil) {
         self.networkManager = networkManager
-
-        url = "https://mainnet.infura.io/v3/\(config.infuraProjectId)"
-        secret = config.infuraProjectSecret
+        self.url = url
+        self.auth = auth
     }
 
     func getFeeRate() -> Single<Int> {
@@ -24,8 +23,8 @@ class InfuraProvider {
 
         var headers = HTTPHeaders()
 
-        if let secret = secret {
-            headers.add(.authorization(username: "", password: secret))
+        if let auth = auth {
+            headers.add(.authorization(username: "", password: auth))
         }
 
         let request = networkManager.session.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
@@ -35,7 +34,7 @@ class InfuraProvider {
 
 }
 
-extension InfuraProvider: IApiMapper {
+extension EvmProvider: IApiMapper {
 
     enum ResponseError: Error {
         case noResult
