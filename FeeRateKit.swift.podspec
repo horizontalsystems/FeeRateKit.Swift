@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'FeeRateKit.swift'
   s.module_name      = 'FeeRateKit'
-  s.version          = '0.6'
+  s.version          = '0.7'
   s.summary          = 'Fee rate provider library for BTC, BCH, LTC, DASH and ETH.'
 
   s.homepage         = 'https://github.com/horizontalsystems/blockchain-fee-rate-kit-ios'
