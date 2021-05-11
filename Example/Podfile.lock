@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
-  - FeeRateKit.swift (0.7):
+  - FeeRateKit.swift (0.8.0):
     - HsToolKit.swift (~> 1)
     - RxSwift (~> 5.0)
   - HsToolKit.swift (1.1.0):
@@ -33,11 +33,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  FeeRateKit.swift: b920b33ac573bb221fd85f37cb2a581a84083150
+  FeeRateKit.swift: 12713618d623d057382b964d2d16d220b1db8df5
   HsToolKit.swift: d47ef3e8c507a6e980f2f6d819c5b0cf05845910
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 20c53457ee1c7bcfdd32689999cfb5cdb5e38b2d
+PODFILE CHECKSUM: 154b3577f0c73380252827df138dac841729db89
 
 COCOAPODS: 1.10.1
