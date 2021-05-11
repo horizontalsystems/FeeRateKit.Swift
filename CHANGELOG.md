@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## Current Version
 
+## 0.8.0
+
 * Increase minimum iOS version to 13.0 [ **non-back-compatible api change** ]
 
 ## 0.7.0
