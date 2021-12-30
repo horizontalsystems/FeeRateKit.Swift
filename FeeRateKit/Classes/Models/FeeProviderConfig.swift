@@ -16,7 +16,7 @@ public struct FeeProviderConfig {
     }
 
     public static var defaultBscEvmUrl: String {
-        "https://bsc-dataseed.binance.org/v3"
+        "https://bsc-dataseed.binance.org/"
     }
 
     public static func infuraUrl(projectId: String) -> String {
