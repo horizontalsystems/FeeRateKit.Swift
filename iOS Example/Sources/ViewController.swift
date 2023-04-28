@@ -1,10 +1,7 @@
 import UIKit
 import FeeRateKit
-import RxSwift
 
 class ViewController: UIViewController {
-    var disposeBag = DisposeBag()
-
     @IBOutlet weak var textView: UITextView?
 
     private let feeRateKit = Kit.instance(providerConfig: FeeProviderConfig(
@@ -18,34 +15,35 @@ class ViewController: UIViewController {
 
     private let exampleBlockchains = ["BTC", "LTC", "BCH", "DASH", "ETH", "BSC"]
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    @IBAction func refresh() {
+        Task { [weak self, exampleBlockchains, feeRateKit] in
+            do {
+                var rates = [Int]()
 
-    func getRate(blockchain: String) -> Single<Int> {
-        switch blockchain {
-            case "BTC": return feeRateKit.bitcoin(blockCount: 10)
-            case "LTC": return feeRateKit.litecoin
-            case "BCH": return feeRateKit.bitcoinCash
-            case "DASH": return feeRateKit.dash
-            case "ETH": return feeRateKit.ethereum
-            case "BSC": return feeRateKit.binanceSmartChain
-            default: return Single.just(0)
+                for blockchain in exampleBlockchains {
+                    let rate: Int
+
+                    switch blockchain {
+                    case "BTC": rate = try await feeRateKit.bitcoin(blockCount: 10)
+                    case "LTC": rate = feeRateKit.litecoin
+                    case "BCH": rate = feeRateKit.bitcoinCash
+                    case "DASH": rate = feeRateKit.dash
+                    case "ETH": rate = try await feeRateKit.ethereum()
+                    case "BSC": rate = try await feeRateKit.binanceSmartChain()
+                    default: rate = 0
+                    }
+
+                    rates.append(rate)
+                }
+
+                self?.updateTextView(rates: rates)
+            } catch {
+                print("handle fee rate error: \(error)")
+            }
         }
     }
 
-    @IBAction func refresh() {
-        Single.zip(exampleBlockchains.map { getRate(blockchain: $0) })
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-                .observeOn(MainScheduler.instance)
-                .subscribe(onSuccess: { [weak self] feeRates in
-                    self?.updateTextView(rates: feeRates)
-                }, onError: { error in
-                    print("handle fee rate error: \(error)")
-                })
-                .disposed(by: disposeBag)
-    }
-
+    @MainActor
     private func updateTextView(rates: [Int]) {
         var ratesString = ""
         

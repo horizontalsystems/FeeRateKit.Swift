@@ -1,5 +1,4 @@
 import HsToolKit
-import RxSwift
 
 public class Kit {
     private let btcCoreProvider: BtcCoreProvider
@@ -16,28 +15,28 @@ public class Kit {
 
 extension Kit {
 
-    public func bitcoin(blockCount: Int) -> Single<Int> {
-        btcCoreProvider.getFeeRate(blockCount: blockCount)
+    public func bitcoin(blockCount: Int) async throws -> Int {
+        try await btcCoreProvider.getFeeRate(blockCount: blockCount)
     }
 
-    public var litecoin: Single<Int> {
-        Single.just(1)
+    public var litecoin: Int {
+        1
     }
 
-    public var bitcoinCash: Single<Int> {
-        Single.just(3)
+    public var bitcoinCash: Int {
+        3
     }
 
-    public var dash: Single<Int> {
-        Single.just(4)
+    public var dash: Int {
+        4
     }
 
-    public var ethereum: Single<Int> {
-        ethProvider.getFeeRate()
+    public func ethereum() async throws -> Int {
+        try await ethProvider.getFeeRate()
     }
 
-    public var binanceSmartChain: Single<Int> {
-        bscProvider.getFeeRate()
+    public func binanceSmartChain() async throws -> Int {
+        try await bscProvider.getFeeRate()
     }
 
 }

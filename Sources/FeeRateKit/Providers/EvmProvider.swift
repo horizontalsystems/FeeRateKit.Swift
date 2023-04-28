@@ -1,6 +1,5 @@
-import HsToolKit
-import RxSwift
 import Alamofire
+import HsToolKit
 
 class EvmProvider {
     private let networkManager: NetworkManager
@@ -13,7 +12,7 @@ class EvmProvider {
         self.auth = auth
     }
 
-    func getFeeRate() -> Single<Int> {
+    func getFeeRate() async throws -> Int {
         let parameters: [String: Any] = [
             "id": "1",
             "jsonrpc": "2.0",
@@ -27,23 +26,10 @@ class EvmProvider {
             headers.add(.authorization(username: "", password: auth))
         }
 
-        let request = networkManager.session.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        let json = try await networkManager.fetchJson(url: url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
 
-        return networkManager.single(request: request, mapper: self)
-    }
-
-}
-
-extension EvmProvider: IApiMapper {
-
-    enum ResponseError: Error {
-        case noResult
-        case wrongFeeFormat
-    }
-
-    public func map(statusCode: Int, data: Any?) throws -> Int {
-        guard let map = data as? [String: Any] else {
-            throw NetworkManager.RequestError.invalidResponse(statusCode: statusCode, data: data)
+        guard let map = json as? [String: Any] else {
+            throw ResponseError.invalidJson
         }
 
         guard var hex = map["result"] as? String else {
@@ -61,6 +47,16 @@ extension EvmProvider: IApiMapper {
         }
 
         return fee
+    }
+
+}
+
+extension EvmProvider {
+
+    enum ResponseError: Error {
+        case invalidJson
+        case noResult
+        case wrongFeeFormat
     }
 
 }

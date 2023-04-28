@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3500A2E28EDAE670093A369 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3500A2D28EDAE670093A369 /* RxSwift */; };
 		D3500A3028EDAEC80093A369 /* FeeRateKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3500A2F28EDAEC80093A369 /* FeeRateKit */; };
 		D36AAB4A23A7558C0065B32B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36AAB4623A7558C0065B32B /* LaunchScreen.storyboard */; };
 		D36AAB4B23A7558C0065B32B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AAB4723A7558C0065B32B /* AppDelegate.swift */; };
@@ -34,7 +33,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3500A3028EDAEC80093A369 /* FeeRateKit in Frameworks */,
-				D3500A2E28EDAE670093A369 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +103,6 @@
 			);
 			name = "iOS Example";
 			packageProductDependencies = (
-				D3500A2D28EDAE670093A369 /* RxSwift */,
 				D3500A2F28EDAEC80093A369 /* FeeRateKit */,
 			);
 			productName = FeeRateKit;
@@ -139,7 +136,6 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				D3500A2C28EDAE670093A369 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -346,23 +342,7 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		D3500A2C28EDAE670093A369 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		D3500A2D28EDAE670093A369 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3500A2C28EDAE670093A369 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
 		D3500A2F28EDAEC80093A369 /* FeeRateKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FeeRateKit;
