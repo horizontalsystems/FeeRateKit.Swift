@@ -1,12 +1,12 @@
 import HsToolKit
 
 public class Kit {
-    private let btcCoreProvider: BtcCoreProvider
+    private let mempoolSpaceProvider: MempoolSpaceProvider
     private let ethProvider: EvmProvider
     private let bscProvider: EvmProvider
 
-    init(btcCoreProvider: BtcCoreProvider, ethProvider: EvmProvider, bscProvider: EvmProvider) {
-        self.btcCoreProvider = btcCoreProvider
+    init(mempoolSpaceProvider: MempoolSpaceProvider, ethProvider: EvmProvider, bscProvider: EvmProvider) {
+        self.mempoolSpaceProvider = mempoolSpaceProvider
         self.ethProvider = ethProvider
         self.bscProvider = bscProvider
     }
@@ -15,8 +15,8 @@ public class Kit {
 
 extension Kit {
 
-    public func bitcoin(blockCount: Int) async throws -> Int {
-        try await btcCoreProvider.getFeeRate(blockCount: blockCount)
+    public func bitcoin() async throws -> MempoolSpaceProvider.RecommendedFees {
+        try await mempoolSpaceProvider.getFeeRate()
     }
 
     public var litecoin: Int {
@@ -48,11 +48,11 @@ extension Kit {
 
         let networkManager = NetworkManager(logger: logger)
 
-        let btcCoreProvider = BtcCoreProvider(networkManager: networkManager, config: providerConfig)
+        let mempoolSpaceProvider = MempoolSpaceProvider(networkManager: networkManager, config: providerConfig)
         let ethProvider = EvmProvider(networkManager: networkManager, url: providerConfig.ethEvmUrl, auth: providerConfig.ethEvmAuth)
         let bscProvider = EvmProvider(networkManager: networkManager, url: providerConfig.bscEvmUrl)
 
-        let kit = Kit(btcCoreProvider: btcCoreProvider, ethProvider: ethProvider, bscProvider: bscProvider)
+        let kit = Kit(mempoolSpaceProvider: mempoolSpaceProvider, ethProvider: ethProvider, bscProvider: bscProvider)
 
         return kit
     }

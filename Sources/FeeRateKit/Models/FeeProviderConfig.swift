@@ -2,17 +2,13 @@ public struct FeeProviderConfig {
     let ethEvmUrl: String
     let ethEvmAuth: String?
     let bscEvmUrl: String
-    let btcCoreRpcUrl: String
-    let btcCoreRpcUser: String?
-    let btcCoreRpcPassword: String?
+    let mempoolSpaceUrl: String
 
-    public init(ethEvmUrl: String, ethEvmAuth: String? = nil, bscEvmUrl: String, btcCoreRpcUrl: String, btcCoreRpcUser: String?, btcCoreRpcPassword: String?) {
+    public init(ethEvmUrl: String, ethEvmAuth: String? = nil, bscEvmUrl: String, mempoolSpaceUrl: String) {
         self.ethEvmUrl = ethEvmUrl
         self.ethEvmAuth = ethEvmAuth
         self.bscEvmUrl = bscEvmUrl
-        self.btcCoreRpcUrl = btcCoreRpcUrl
-        self.btcCoreRpcUser = btcCoreRpcUser
-        self.btcCoreRpcPassword = btcCoreRpcPassword
+        self.mempoolSpaceUrl = mempoolSpaceUrl
     }
 
     public static var defaultBscEvmUrl: String {
