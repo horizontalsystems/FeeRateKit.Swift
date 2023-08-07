@@ -14,12 +14,14 @@ let package = Package(
         ],
         dependencies: [
           .package(url: "https://github.com/horizontalsystems/HsToolKit.Swift.git", .upToNextMajor(from: "2.0.0")),
+          .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .upToNextMajor(from: "4.1.0"))
         ],
         targets: [
           .target(
                   name: "FeeRateKit",
                   dependencies: [
                     .product(name: "HsToolKit", package: "HsToolKit.Swift"),
+                    "ObjectMapper"
                   ]
           )
         ]
