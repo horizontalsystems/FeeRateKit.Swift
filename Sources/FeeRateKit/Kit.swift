@@ -20,7 +20,7 @@ extension Kit {
     }
 
     public var litecoin: Int {
-        1
+        3
     }
 
     public var bitcoinCash: Int {
